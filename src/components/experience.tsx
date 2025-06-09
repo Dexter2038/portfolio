@@ -1,3 +1,4 @@
+
 import { Trophy } from "lucide-react";
 
 export function Experience() {
@@ -7,10 +8,28 @@ export function Experience() {
         <Trophy />
         <h1 className="text-3xl px-2">Опыт</h1>
       </header>
-      <ol className="list-decimal list-inside space-y-3 text-gray-700">
-        <li><strong>6 месяцев фриланса:</strong> Работал с разными клиентами, быстро решал задачи, улучшал коммуникацию и тайм-менеджмент.</li>
-        <li><strong>6 месяцев проекта, о котором нельзя говорить:</strong> Закрытая разработка, работа с конфиденциальными данными, строгие дедлайны, высокая ответственность.</li>
+      <ol className="space-y-6 text-gray-700">
+        <li>
+          <h2 className="font-bold text-lg">🚀 Фриланс — эксперименты <span className="text-sm font-normal text-gray-500">(Апрель 2024 — Декабрь 2024)</span></h2>
+          <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+            <li>Провел 3 клиентских проекта через полный цикл разработки</li>
+            <li>Освоил принципы оценки сроков на реальных задачах</li>
+            <li>Разработал систему коммуникации с заказчиками</li>
+          </ul>
+        </li>
+        <li>
+          <h2 className="font-bold text-lg">🔒 Конфиденциальный проект <span className="text-sm font-normal text-gray-500">(Ноябрь 2024 — настоящее время)</span></h2>
+          <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
+            <li>Разработка под NDA с ограниченным доступом к данным</li>
+            <li>Работа с жёсткими дедлайнами и высокими требованиями к безопасности</li>
+            <li>Еженедельные отчёты о прогрессе</li>
+            <li>
+              <span className="font-semibold">Результат:</span> Стабильные коммиты в течение 7+ месяцев
+            </li>
+          </ul>
+        </li>
       </ol>
     </section>
-  )
+  );
 }
+

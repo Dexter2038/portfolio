@@ -1,3 +1,3 @@
 export function CTA() {
-  return <></>
+  return <h1 className="flex justify-center w-full">Contact me</h1>
 }
