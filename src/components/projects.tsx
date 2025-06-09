@@ -2,7 +2,7 @@ import { BriefcaseBusiness } from "lucide-react";
 
 export function Projects() {
   return (
-    <section id="projects" className="p-10 border-t-current border-t-4">
+    <section id="projects" className="p-10 h-full rounded-lg border-current border-4">
       <span className="flex items-center pb-2">
         <BriefcaseBusiness />
         <h1 className="text-3xl px-2">Проекты</h1>
