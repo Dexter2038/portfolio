@@ -16,7 +16,7 @@ pub fn App() -> impl IntoView {
         <Title text=move || title.get()/>
 
         <Router>
-            <main>
+            <main class="h-screen w-screen p-4">
                 <Routes fallback=|| view!{ <p>"Page not found."</p> }>
                     <Route path=StaticSegment("") view=move || view!{ <MainPage /> }/>
                 </Routes>
@@ -47,7 +47,7 @@ fn Personal() -> impl IntoView {
         And now I am here
     "#;
     view! {
-        <div class="flex flex-col min-w-[300px] max-w-[550px] min-h-[475px] border-black border-2 rounded-3xl p-4">
+        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
             <div class="flex flex-row justify-between">
                 <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
@@ -67,35 +67,95 @@ fn Personal() -> impl IntoView {
 #[component]
 fn Stack() -> impl IntoView {
     view! {
-        <h1>"Stack"</h1>
+        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-x-4 flex-1">
+            <div>
+                <h1 class="text-xl">Stack</h1>
+            </div>
+            <div class="flex flex-row justify-stretch">
+                <ul class="w-full basis-2/3 flex justify-items-start">
+                    <li>Leptos</li>
+                    <li>Tailwind</li>
+                    <li>Axum</li>
+                    <li>FastAPI</li>
+                    <li>React</li>
+                    <li>Next.js</li>
+                </ul>
+                <div class="w-full basis-1/3">
+                    <ul>
+                        <li>Leptos</li>
+                        <li>Tailwind</li>
+                        <li>Axum</li>
+                        <li>FastAPI</li>
+                        <li>React</li>
+                        <li>Next.js</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     }
 }
 
 #[component]
 fn Process() -> impl IntoView {
     view! {
-        <h1>"Process"</h1>
+        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
+            <div class="flex flex-row justify-between">
+                <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
+                <div class="flex flex-col justify-center w-full">
+                </div>
+            </div>
+            <div class="flex flex-col justify-center align-items h-full">
+                Process
+            </div>
+        </div>
     }
 }
 
 #[component]
 fn Experience() -> impl IntoView {
     view! {
-        <h1>"Experience"</h1>
+        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
+            <div class="flex flex-row justify-between">
+                <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
+                <div class="flex flex-col justify-center w-full">
+                </div>
+            </div>
+            <div class="flex flex-col justify-center align-items h-full">
+                Experience
+            </div>
+        </div>
     }
 }
 
 #[component]
 fn Projects() -> impl IntoView {
     view! {
-        <h1>"Projects"</h1>
+        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
+            <div class="flex flex-row justify-between">
+                <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
+                <div class="flex flex-col justify-center w-full">
+                </div>
+            </div>
+            <div class="flex flex-col justify-center align-items h-full">
+                Projects
+            </div>
+        </div>
     }
 }
 
 #[component]
 fn Contacts() -> impl IntoView {
     view! {
-        <h1>"Contacts"</h1>
+        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
+            <div class="flex flex-row justify-between">
+                <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
+                <div class="flex flex-col justify-center w-full">
+                </div>
+            </div>
+            <div class="flex flex-col justify-center align-items h-full">
+                Contacts
+            </div>
+        </div>
     }
 }
 
@@ -103,17 +163,13 @@ fn Contacts() -> impl IntoView {
 fn MainPage() -> impl IntoView {
     view! {
         // Tailwind
-        <div class="flex flex-col flex-wrap h-screen w-screen m-4">
-            <div class="flex flex-col flex-wrap">
-                <Personal />
-                <Stack />
-                <Process />
-            </div>
-            <div class="flex flex-col">
+        <div class="flex flex-col flex-wrap gap-4 w-full h-full">
+            <Personal />
                 <Experience />
+            <Stack />
                 <Projects />
+            <Process />
                 <Contacts />
-            </div>
         </div>
     }
 }
