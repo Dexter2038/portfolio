@@ -16,7 +16,7 @@ pub fn App() -> impl IntoView {
         <Title text=move || title.get()/>
 
         <Router>
-            <main class="h-screen w-screen p-4">
+            <main class="h-screen w-screen p-4 bg-gray-200">
                 <Routes fallback=|| view!{ <p>"Page not found."</p> }>
                     <Route path=StaticSegment("") view=move || view!{ <MainPage /> }/>
                 </Routes>
@@ -47,7 +47,7 @@ fn Personal() -> impl IntoView {
         And now I am here
     "#;
     view! {
-        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
             <div class="flex flex-row justify-between">
                 <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
@@ -67,12 +67,10 @@ fn Personal() -> impl IntoView {
 #[component]
 fn Stack() -> impl IntoView {
     view! {
-        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-x-4 flex-1">
-            <div>
-                <h1 class="text-xl">Stack</h1>
-            </div>
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-x-4 flex-1">
+            <h1 class="text-xl">Stack</h1>
             <div class="flex flex-row justify-stretch">
-                <ul class="w-full basis-2/3 flex justify-items-start">
+                <ul class="w-full basis-2/3">
                     <li>Leptos</li>
                     <li>Tailwind</li>
                     <li>Axum</li>
@@ -98,7 +96,7 @@ fn Stack() -> impl IntoView {
 #[component]
 fn Process() -> impl IntoView {
     view! {
-        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
+        <div class="flex flex-col basis-1/3 border-black  bg-gray-100 shadow rounded-3xl p-4 flex-1">
             <div class="flex flex-row justify-between">
                 <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
@@ -114,7 +112,7 @@ fn Process() -> impl IntoView {
 #[component]
 fn Experience() -> impl IntoView {
     view! {
-        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
             <div class="flex flex-row justify-between">
                 <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
@@ -130,7 +128,7 @@ fn Experience() -> impl IntoView {
 #[component]
 fn Projects() -> impl IntoView {
     view! {
-        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
             <div class="flex flex-row justify-between">
                 <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
@@ -146,7 +144,7 @@ fn Projects() -> impl IntoView {
 #[component]
 fn Contacts() -> impl IntoView {
     view! {
-        <div class="flex flex-col basis-1/3 border-black border-2 rounded-3xl p-4 flex-1">
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
             <div class="flex flex-row justify-between">
                 <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
