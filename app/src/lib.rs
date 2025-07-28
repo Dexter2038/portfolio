@@ -59,7 +59,7 @@ fn Personal() -> impl IntoView {
                 </div>
             </div>
             <div class="flex flex-col justify-center align-items h-full">
-                {description.split("\n").map(|s| view!{<p>{s}</p>}).collect::<Vec<_>>()}
+                {description.split("\n").map(|s| view!{<p class="text-left">{s}</p>}).collect::<Vec<_>>()}
             </div>
         </div>
     }
@@ -252,17 +252,89 @@ fn Projects() -> impl IntoView {
     }
 }
 
+struct Contact {
+    platform: &'static str,
+    link: &'static str,
+    icon: &'static str,
+    value: &'static str,
+}
+
+impl Contact {
+    fn new(
+        platform: &'static str,
+        link: &'static str,
+        icon: &'static str,
+        value: &'static str,
+    ) -> Self {
+        Self {
+            platform,
+            link,
+            icon,
+            value,
+        }
+    }
+}
+
 #[component]
 fn Contacts() -> impl IntoView {
+    let contacts = vec![
+        Contact::new(
+            "GitHub",
+            "https://github.com/dextermorgan",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg",
+            "dextermorgan",
+        ),
+        Contact::new(
+            "Email",
+            "mailto:OoN7l@example.com",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg",
+            "OoN7l@example.com",
+        ),
+        Contact::new(
+            "Telegram",
+            "https://t.me/dextermorgan",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg",
+            "@dextermorgan",
+        ),
+        Contact::new(
+            "Twitter (X)",
+            "https://twitter.com/dextermorgan",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg",
+            "@dextermorgan",
+        ),
+        Contact::new(
+            "LinkedIn",
+            "https://linkedin.com/in/dextermorgan",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg",
+            "dextermorgan",
+        ),
+        Contact::new(
+            "Whatsapp",
+            "https://wa.me/6281312345678",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg",
+            "+6281312345678",
+        ),
+    ];
+    let details = r#"
+        Typically reply within 24h
+        Open to freelance projects — Mon to Fri
+        Timezone: GMT+3
+    "#;
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
-            <div class="flex flex-row justify-between">
-                <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
-                <div class="flex flex-col justify-center w-full">
-                </div>
-            </div>
-            <div class="flex flex-col justify-center align-items h-full">
-                Contacts
+            <h1 class="text-xl">Contacts</h1>
+            <div class="flex flex-col justify-center align-items h-full w-full">
+                {contacts.iter().map(|c| view!{
+                    <a href={c.link}>
+                        <div class="flex flex-row gap-1">
+                            <img src={c.icon} class="w-[20px] h-[20px]" />
+                            <p>{c.platform}</p>
+                            <p>" — "{c.value}</p>
+                        </div>
+                    </a>
+                }).collect::<Vec<_>>()}
+                <div style="flex-basis: 5%; height: 0;"></div>
+                {details.split("\n").map(|s| view!{<p class="text-left">{s}</p>}).collect::<Vec<_>>()}
             </div>
         </div>
     }
