@@ -116,7 +116,7 @@ fn Stack() -> impl IntoView {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-x-4 flex-1">
             <h1 class="text-xl">Stack</h1>
             <div class="flex flex-row justify-stretch">
-                <div class="w-full flex flex-row gap-2 basis-3/5 p-4">
+                <div class="w-full flex flex-row gap-2 basis-2/3 p-4">
                     <ul>
                         {stack.iter().map(|s| view!{
                             <li class="flex flex-row gap-2 items-center">
@@ -134,16 +134,22 @@ fn Stack() -> impl IntoView {
                         }).collect::<Vec<_>>()}
                     </ul>
                 </div>
-                <div class="w-full basis-2/5 bg-gray-200 shadow rounded-2xl p-2 m-2 box-content">
+                <div class="w-full basis-1/3 bg-gray-200 shadow rounded-2xl p-2 m-2 box-content">
                     <ul class="flex flex-col gap-5 p-2">
                         {
                             let max_experience = stack.iter().map(|s| s.experience).max().unwrap_or(0);
                             stack.iter().map(|s| {
                                 let percentage = (s.experience as f32 / max_experience as f32) * 100.0;
                                 let color = match percentage {
-                                    0.0..=33.9 => "bg-red-500",
-                                    34.0..=66.0 => "bg-yellow-500",
-                                    _ => "bg-green-500",
+                                    0.0..=11.3 => "bg-red-700",
+                                    11.4..=22.6 => "bg-red-500",
+                                    22.7..=33.9 => "bg-red-400",
+                                    34.0..=45.3 => "bg-yellow-600",
+                                    45.4..=56.6 => "bg-yellow-500",
+                                    56.7..=66.9 => "bg-yellow-300",
+                                    67.0..=78.3 => "bg-green-700",
+                                    78.4..=89.6 => "bg-green-500",
+                                    _ => "bg-green-300", // 89.7..=100.0 and any percentage > 100.0
                                 };
                                 view! {
                                     <li>
