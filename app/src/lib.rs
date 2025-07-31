@@ -39,14 +39,14 @@ fn Personal() -> impl IntoView {
             <div class="flex flex-row justify-between">
                 <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
-                    <p class="text-gray-600 dark:text-gray-200">{t!(i18n, name)}</p>
-                    <p class="text-gray-600 dark:text-gray-200">{t!(i18n, role)}</p>
+                    <p class="text-gray-600 dark:text-gray-200">{t!(i18n, personal.name)}</p>
+                    <p class="text-gray-600 dark:text-gray-200">{t!(i18n, personal.role)}</p>
                     <div style="flex-basis: 5%; height: 0;"></div>
-                    <p class="text-gray-800 dark:text-gray-400">{t!(i18n, tech)}</p>
+                    <p class="text-gray-800 dark:text-gray-400">{t!(i18n, personal.tech)}</p>
                 </div>
             </div>
             <div class="flex flex-col justify-center align-items h-full">
-                <p class="dark:text-gray-100 text-left">{t!(i18n, description)}</p>
+                <p class="dark:text-gray-100 text-left">{t!(i18n, personal.description)}</p>
             </div>
         </div>
     }
@@ -70,6 +70,7 @@ impl Stack {
 
 #[component]
 fn Stack() -> impl IntoView {
+    let i18n = use_i18n();
     let stack = vec![
         Stack::new("Python", "https://simpleicons.org/icons/python.svg", 24),
         Stack::new(
