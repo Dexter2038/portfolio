@@ -1,4 +1,4 @@
-use leptos::{attr::Datetime, prelude::*};
+use leptos::prelude::*;
 use leptos_meta::{provide_meta_context, Title};
 use leptos_router::{
     components::{Route, Router, Routes},
@@ -15,7 +15,7 @@ pub fn App() -> impl IntoView {
         <Title text=move || title.get()/>
 
         <Router>
-            <main class="h-screen w-screen p-4 bg-gray-200">
+            <main class="h-screen w-screen p-4 dark:bg-gray-700 bg-gray-200">
                 <Routes fallback=|| view!{ <p>"Page not found."</p> }>
                     <Route path=StaticSegment("") view=move || view!{ <MainPage /> }/>
                 </Routes>
@@ -46,18 +46,18 @@ fn Personal() -> impl IntoView {
         And now I am here
     "#;
     view! {
-        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
             <div class="flex flex-row justify-between">
                 <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
-                    <p class="text-gray-600">{name}</p>
-                    <p class="text-gray-600">{role}</p>
+                    <p class="text-gray-600 dark:text-gray-200">{name}</p>
+                    <p class="text-gray-600 dark:text-gray-200">{role}</p>
                     <div style="flex-basis: 5%; height: 0;"></div>
-                    {tech.split("\n").map(|s| view!{<p class="text-gray-800">{s}</p>}).collect::<Vec<_>>()}
+                    {tech.split("\n").map(|s| view!{<p class="text-gray-800 dark:text-gray-400">{s}</p>}).collect::<Vec<_>>()}
                 </div>
             </div>
             <div class="flex flex-col justify-center align-items h-full">
-                {description.split("\n").map(|s| view!{<p class="text-left">{s}</p>}).collect::<Vec<_>>()}
+                {description.split("\n").map(|s| view!{<p class="dark:text-gray-100 text-left">{s}</p>}).collect::<Vec<_>>()}
             </div>
         </div>
     }
@@ -113,28 +113,28 @@ fn Stack() -> impl IntoView {
         Stack::new("Gin", "https://simpleicons.org/icons/gin.svg", 1),
     ];
     view! {
-        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-x-4 flex-1">
-            <h1 class="text-xl">Stack</h1>
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-x-4 flex-1">
+            <h1 class="text-xl dark:text-gray-100">Stack</h1>
             <div class="flex flex-row justify-stretch">
                 <div class="w-full flex flex-row gap-2 basis-2/3 p-4">
                     <ul>
                         {stack.iter().map(|s| view!{
                             <li class="flex flex-row gap-2 items-center">
                                 <img src="/point.svg" class="w-[10px] h-[10px]" />
-                                <p>{s.name}</p>
+                                <p class="dark:text-white">{s.name}</p>
                             </li>
                         }).collect::<Vec<_>>()}
                     </ul>
                     <ul class="flex flex-col">
                         {stack.iter().map(|s| view!{
                             <li class="flex flex-row gap-2 items-center">
-                                <img src={s.icon} class="w-[20px] h-[20px]" />
-                                <p>{s.experience} year{if s.experience == 1 {""} else {"s"}}</p>
+                                <img src={s.icon} class="w-[20px] h-[20px] dark:invert" />
+                                <p class="dark:text-white">{s.experience} year{if s.experience == 1 {""} else {"s"}}</p>
                             </li>
                         }).collect::<Vec<_>>()}
                     </ul>
                 </div>
-                <div class="w-full basis-1/3 bg-gray-200 shadow rounded-2xl p-2 m-2 box-content">
+                <div class="w-full basis-1/3 bg-gray-200 dark:bg-gray-700 shadow rounded-2xl p-2 m-2 box-content">
                     <ul class="flex flex-col gap-5 p-2">
                         {
                             let max_experience = stack.iter().map(|s| s.experience).max().unwrap_or(0);
@@ -201,16 +201,16 @@ fn Process() -> impl IntoView {
         )
     ];
     view! {
-        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
-            <h1 class="text-xl">How does work process go</h1>
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
+            <h1 class="text-xl dark:text-gray-100">How does work process go</h1>
             <div class="flex flex-col justify-stretch">
                 {steps.iter().enumerate().map(|(i, s)| view!{
                     <div class="flex flex-col">
                         <div class="flex flex-row gap-1">
-                            <p>{i + 1}.</p>
-                            <p class="font-bold">{s.title}</p>
+                            <p class="font-bold dark:text-gray-100">{i + 1}.</p>
+                            <p class="font-bold dark:text-gray-100">{s.title}</p>
                         </div>
-                        <p class="text-right text-gray-600">{s.description}</p>
+                        <p class="text-right text-gray-600 dark:text-gray-200">{s.description}</p>
                     </div>
                 }).collect::<Vec<_>>()}
             </div>
@@ -282,18 +282,18 @@ fn Experiences() -> impl IntoView {
         ),
     ];
     view! {
-        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
-            <h1 class="text-xl">Experience</h1>
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
+            <h1 class="text-xl dark:text-gray-100">Experience</h1>
             <div class="flex flex-col justify-center align-items h-full w-full gap-4">
                 {experiences.iter().map(|e| view!{
-                    <div class="flex flex-row gap-1 rounded-3xl bg-gray-200 p-4">
+                    <div class="flex flex-row gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
                         <div class="flex flex-col gap-1">
-                            <p>{e.orderer}</p>
-                            <p class="text-gray-600 text-sm">{e.start} - {e.end}</p>
+                            <p class="font-bold dark:text-white">{e.orderer}</p>
+                            <p class="text-gray-600 text-sm dark:text-gray-300">{e.start} - {e.end}</p>
                         </div>
                         <div class="flex flex-col justify-around">
-                            <p class="text-right">{e.description}</p>
-                            <p class="text-gray-600">{e.role}</p>
+                            <p class="text-right dark:text-gray-100">{e.description}</p>
+                            <p class="text-gray-600 dark:text-gray-300">{e.role}</p>
                         </div>
                     </div>
                 }).collect::<Vec<_>>()}
@@ -347,23 +347,23 @@ fn Projects() -> impl IntoView {
         ),
     ];
     view! {
-        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
-            <h1 class="text-xl">Projects</h1>
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
+            <h1 class="text-xl dark:text-gray-100">Projects</h1>
             <div class="flex flex-row justify-center align-items h-full w-full gap-4">
                 {projects.iter().map(|p| view!{
-                    <div class="flex flex-col gap-1 rounded-3xl bg-gray-200 p-4">
+                    <div class="flex flex-col gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
                         <div class="flex flex-col gap-1">
-                            <p class="font-bold">{p.title}</p>
-                            <p class="text-gray-600 text-sm">{p.description}</p>
+                            <p class="font-bold dark:text-white">{p.title}</p>
+                            <p class="text-gray-600 text-sm dark:text-gray-300">{p.description}</p>
                         </div>
                         <img src={p.pic} class="w-[200px] h-[200px] rounded-3xl" />
                         <div class="flex flex-col justify-around">
-                            <a href={p.link} class="underline">Open</a>
+                            <a href={p.link} class="underline dark:text-gray-100">Open</a>
                             <div class="flex flex-col gap-1">
                                 {p.tech.iter().map(|t| view!{
                                     <div class="flex flex-row gap-1 items-center">
                                         <img src="/point.svg" class="w-[10px] h-[10px]" />
-                                        <p class="text-left">{*t}</p>
+                                        <p class="text-left dark:text-gray-100">{*t}</p>
                                     </div>
                                 }).collect::<Vec<_>>()}
                             </div>
@@ -444,20 +444,20 @@ fn Contacts() -> impl IntoView {
         Timezone: GMT+3
     "#;
     view! {
-        <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
-            <h1 class="text-xl">Contacts</h1>
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
+            <h1 class="text-xl dark:text-gray-100">Contacts</h1>
             <div class="flex flex-col justify-center align-items h-full w-full">
                 {contacts.iter().map(|c| view!{
                     <a href={c.link}>
                         <div class="flex flex-row gap-1">
-                            <img src={c.icon} class="w-[20px] h-[20px]" />
-                            <p>{c.platform}</p>
-                            <p>" — "{c.value}</p>
+                            <img src={c.icon} class="w-[20px] h-[20px] invert" />
+                            <p class="dark:text-gray-100">{c.platform}</p>
+                            <p class="dark:text-gray-100">" — "{c.value}</p>
                         </div>
                     </a>
                 }).collect::<Vec<_>>()}
                 <div style="flex-basis: 5%; height: 0;"></div>
-                {details.split("\n").map(|s| view!{<p class="text-left">{s}</p>}).collect::<Vec<_>>()}
+                {details.split("\n").map(|s| view!{<p class="text-left dark:text-gray-100">{s}</p>}).collect::<Vec<_>>()}
             </div>
         </div>
     }
