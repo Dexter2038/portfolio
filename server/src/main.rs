@@ -22,7 +22,7 @@ pub fn shell(options: LeptosOptions) -> impl IntoView {
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link rel="stylesheet" href="/pkg/portfolio.css"/>
-                <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+                <script src="/tailwind.js"></script>
                 <AutoReload options=options.clone()/>
                 <HydrationScripts options/>
             </head>
