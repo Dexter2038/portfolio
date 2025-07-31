@@ -20,20 +20,20 @@ jobs:
           profile: minimal
           override: true
 
-      - name: Install cargo-leptos
-        run: cargo install cargo-leptos
-
       - name: Install Rust nightly toolchain
         run: rustup toolchain install nightly --allow-downgrade
 
-      - name: Add wasm target
+      - name: Add wasm target for nightly
         run: rustup target add wasm32-unknown-unknown --toolchain nightly
+
+      - name: Install cargo-leptos (nightly)
+        run: cargo +nightly install cargo-leptos
 
       - name: Install cargo-generate
         run: cargo install cargo-generate
 
-      - name: Build project
-        run: cargo leptos build --release
+      - name: Build project with cargo-leptos
+        run: cargo +nightly leptos build --release
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
