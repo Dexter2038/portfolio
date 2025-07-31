@@ -20,6 +20,9 @@ jobs:
           profile: minimal
           override: true
 
+      - name: Install cargo-leptos
+        run: cargo install cargo-leptos
+
       - name: Build project
         run: cargo leptos build --release
 
