@@ -333,22 +333,14 @@ fn Projects() -> impl IntoView {
     let projects = vec![
         Project::new(
             "Dead Inside",
-            r#"
-                Some random text, because I can't really remember,
-                it was quite long ago and I don't want to remember it
-                anymore
-            "#,
+            "Some random text, because I can't really remember",
             "/portfolio-photo.jpg",
             "https://github.com/dextermorgan/DeadInside",
             vec!["Rust", "Telegram bot", "Web"],
         ),
         Project::new(
             "Dead Inside",
-            r#"
-                Some random text, because I can't really remember,
-                it was quite long ago and I don't want to remember it
-                anymore
-            "#,
+            "Some random text, because I can't really remember",
             "/portfolio-photo.jpg",
             "https://github.com/dextermorgan/DeadInside",
             vec!["Rust", "Telegram bot", "Web"],
@@ -357,8 +349,26 @@ fn Projects() -> impl IntoView {
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
             <h1 class="text-xl">Projects</h1>
-            <div class="flex flex-col justify-center align-items h-full w-full gap-4">
+            <div class="flex flex-row justify-center align-items h-full w-full gap-4">
                 {projects.iter().map(|p| view!{
+                    <div class="flex flex-col gap-1 rounded-3xl bg-gray-200 p-4">
+                        <div class="flex flex-col gap-1">
+                            <p class="font-bold">{p.title}</p>
+                            <p class="text-gray-600 text-sm">{p.description}</p>
+                        </div>
+                        <img src={p.pic} class="w-[200px] h-[200px] rounded-3xl" />
+                        <div class="flex flex-col justify-around">
+                            <a href={p.link} class="underline">Open</a>
+                            <div class="flex flex-col gap-1">
+                                {p.tech.iter().map(|t| view!{
+                                    <div class="flex flex-row gap-1 items-center">
+                                        <img src="/point.svg" class="w-[10px] h-[10px]" />
+                                        <p class="text-left">{*t}</p>
+                                    </div>
+                                }).collect::<Vec<_>>()}
+                            </div>
+                        </div>
+                    </div>
                 }).collect::<Vec<_>>()}
             </div>
         </div>
