@@ -70,7 +70,6 @@ impl Stack {
 
 #[component]
 fn Stack() -> impl IntoView {
-    let i18n = use_i18n();
     let stack = vec![
         Stack::new("Python", "https://simpleicons.org/icons/python.svg", 24),
         Stack::new(
