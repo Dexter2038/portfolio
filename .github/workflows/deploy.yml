@@ -19,7 +19,9 @@ jobs:
           toolchain: nightly
           profile: minimal
           override: true
-          targets: wasm32-unknown-unknown
+
+      - name: Add wasm target
+        run: rustup target add wasm32-unknown-unknown --toolchain nightly
 
       - name: Install cargo-leptos
         run: cargo install cargo-leptos
