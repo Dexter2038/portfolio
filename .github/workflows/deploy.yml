@@ -23,6 +23,15 @@ jobs:
       - name: Install cargo-leptos
         run: cargo install cargo-leptos
 
+      - name: Install Rust nightly toolchain
+        run: rustup toolchain install nightly --allow-downgrade
+
+      - name: Add wasm target
+        run: rustup target add wasm32-unknown-unknown --toolchain nightly
+
+      - name: Install cargo-generate
+        run: cargo install cargo-generate
+
       - name: Build project
         run: cargo leptos build --release
 
