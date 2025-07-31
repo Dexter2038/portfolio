@@ -120,7 +120,7 @@ fn Stack() -> impl IntoView {
                     <ul>
                         {stack.iter().map(|s| view!{
                             <li class="flex flex-row gap-2 items-center">
-                                <img src="/point.svg" class="w-[20px] h-[20px]" />
+                                <img src="/point.svg" class="w-[10px] h-[10px]" />
                                 <p>{s.name}</p>
                             </li>
                         }).collect::<Vec<_>>()}
@@ -286,7 +286,7 @@ fn Experiences() -> impl IntoView {
             <h1 class="text-xl">Experience</h1>
             <div class="flex flex-col justify-center align-items h-full w-full gap-4">
                 {experiences.iter().map(|e| view!{
-                    <div class="flex flex-row gap-1 rounded-3xl border-black border p-4">
+                    <div class="flex flex-row gap-1 rounded-3xl bg-gray-200 p-4">
                         <div class="flex flex-col gap-1">
                             <p>{e.orderer}</p>
                             <p class="text-gray-600 text-sm">{e.start} - {e.end}</p>
@@ -302,17 +302,64 @@ fn Experiences() -> impl IntoView {
     }
 }
 
+struct Project {
+    title: &'static str,
+    description: &'static str,
+    pic: &'static str,
+    link: &'static str,
+    tech: Vec<&'static str>,
+}
+
+impl Project {
+    fn new(
+        title: &'static str,
+        description: &'static str,
+        pic: &'static str,
+        link: &'static str,
+        tech: Vec<&'static str>,
+    ) -> Self {
+        Self {
+            title,
+            description,
+            pic,
+            link,
+            tech,
+        }
+    }
+}
+
 #[component]
 fn Projects() -> impl IntoView {
+    let projects = vec![
+        Project::new(
+            "Dead Inside",
+            r#"
+                Some random text, because I can't really remember,
+                it was quite long ago and I don't want to remember it
+                anymore
+            "#,
+            "/portfolio-photo.jpg",
+            "https://github.com/dextermorgan/DeadInside",
+            vec!["Rust", "Telegram bot", "Web"],
+        ),
+        Project::new(
+            "Dead Inside",
+            r#"
+                Some random text, because I can't really remember,
+                it was quite long ago and I don't want to remember it
+                anymore
+            "#,
+            "/portfolio-photo.jpg",
+            "https://github.com/dextermorgan/DeadInside",
+            vec!["Rust", "Telegram bot", "Web"],
+        ),
+    ];
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 shadow rounded-3xl p-4 flex-1">
-            <div class="flex flex-row justify-between">
-                <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
-                <div class="flex flex-col justify-center w-full">
-                </div>
-            </div>
-            <div class="flex flex-col justify-center align-items h-full">
-                Projects
+            <h1 class="text-xl">Projects</h1>
+            <div class="flex flex-col justify-center align-items h-full w-full gap-4">
+                {projects.iter().map(|p| view!{
+                }).collect::<Vec<_>>()}
             </div>
         </div>
     }
