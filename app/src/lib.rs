@@ -103,6 +103,7 @@ fn Stack() -> impl IntoView {
         Stack::new("Gin", "https://simpleicons.org/icons/gin.svg", 1),
     ];
     let i18n = use_i18n();
+    let locale = i18n.get_locale();
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-x-4 flex-1">
             <h1 class="text-xl dark:text-gray-100">Stack</h1>
@@ -120,7 +121,32 @@ fn Stack() -> impl IntoView {
                         {stack.iter().map(|s| view!{
                             <li class="flex flex-row gap-2 items-center">
                                 <img src={s.icon} class="w-[20px] h-[20px] dark:invert" />
-                                <p class="dark:text-white">{s.experience} year{if s.experience == 1 {""} else {"s"}}</p>
+                                <p class="dark:text-white">{s.experience}" "{
+                                    match locale {
+                                    Locale::en => {
+                                        match s.experience {
+                                            1 => "month".into_view(),
+                                            _ => "months".into_view(),
+                                        }
+                                    },
+                                    Locale::ru => {
+                                        let rem_10 = s.experience % 10;
+                                        let rem_100 = s.experience % 100;
+
+                                        let word = if rem_100 >= 11 && rem_100 <= 14 {
+                                            "месяцев"
+                                        } else {
+                                            match rem_10 {
+                                                1 => "месяц",
+                                                2..=4 => "месяца",
+                                                _ => "месяцев",
+                                            }
+                                        };
+
+                                        word.into_view()
+                                    }
+                                }}
+                                </p>
                             </li>
                         }).collect::<Vec<_>>()}
                     </ul>
