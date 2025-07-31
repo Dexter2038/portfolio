@@ -13,27 +13,19 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install Rust
+      - name: Install Rust Nightly
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
+          toolchain: nightly
           profile: minimal
           override: true
+          targets: wasm32-unknown-unknown
 
-      - name: Install Rust nightly toolchain
-        run: rustup toolchain install nightly --allow-downgrade
+      - name: Install cargo-leptos
+        run: cargo install cargo-leptos
 
-      - name: Add wasm target for nightly
-        run: rustup target add wasm32-unknown-unknown --toolchain nightly
-
-      - name: Install cargo-leptos (nightly)
-        run: cargo +nightly install cargo-leptos
-
-      - name: Install cargo-generate
-        run: cargo install cargo-generate
-
-      - name: Build project with cargo-leptos
-        run: cargo +nightly leptos build --release
+      - name: Build with Leptos (CSR)
+        run: cargo +nightly leptos build --release --features=hydrate
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
