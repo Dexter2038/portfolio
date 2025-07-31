@@ -1,9 +1,13 @@
-use leptos::prelude::*;
+#![allow(deprecated)]
+leptos_i18n::load_locales!();
+use i18n::*;
+use leptos::{logging::log, prelude::*};
 use leptos_meta::{provide_meta_context, Title};
 use leptos_router::{
     components::{Route, Router, Routes},
     StaticSegment,
 };
+use web_sys::window;
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -14,50 +18,35 @@ pub fn App() -> impl IntoView {
     view! {
         <Title text=move || title.get()/>
 
-        <Router>
-            <main class="h-screen w-screen p-4 dark:bg-gray-700 bg-gray-200">
-                <Routes fallback=|| view!{ <p>"Page not found."</p> }>
-                    <Route path=StaticSegment("") view=move || view!{ <MainPage /> }/>
-                </Routes>
-            </main>
-        </Router>
+
+        <I18nContextProvider >
+            <Router>
+                <main class="h-screen w-screen p-4 dark:bg-gray-700 bg-gray-200">
+                    <Routes fallback=|| view!{ <p>"Page not found."</p> }>
+                        <Route path=StaticSegment("") view=move || view!{ <MainPage /> }/>
+                    </Routes>
+                </main>
+            </Router>
+        </I18nContextProvider>
     }
 }
 
 #[component]
 fn Personal() -> impl IntoView {
-    let name = "Michael Barkaloff";
-    let role = "A software developer";
-    let tech = r#"
-        Proficient in Rust, Python, JS, TS,
-        Golang, SQL, PostgreSQL, MySQL,
-        FastAPI, Axum, Clap, TailwindCSS,
-        Leptos, Aiogram, Teloxide, Gin,
-        React, Next.js, REST, gRPC
-    "#;
-    let description = r#"
-        Since my child years I have been making lego models
-        In school I was interested in computers and games
-        In college I got into an IT subject
-        But it was a cybersecurity and there was not much code
-        So, I decided to learn Python in parallel
-        After 2 years of experience with programming
-        I know a lot, both backend and frontend, and much more
-        And now I am here
-    "#;
+    let i18n = use_i18n();
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
             <div class="flex flex-row justify-between">
                 <img src="/portfolio-photo.jpg" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
-                    <p class="text-gray-600 dark:text-gray-200">{name}</p>
-                    <p class="text-gray-600 dark:text-gray-200">{role}</p>
+                    <p class="text-gray-600 dark:text-gray-200">{t!(i18n, name)}</p>
+                    <p class="text-gray-600 dark:text-gray-200">{t!(i18n, role)}</p>
                     <div style="flex-basis: 5%; height: 0;"></div>
-                    {tech.split("\n").map(|s| view!{<p class="text-gray-800 dark:text-gray-400">{s}</p>}).collect::<Vec<_>>()}
+                    <p class="text-gray-800 dark:text-gray-400">{t!(i18n, tech)}</p>
                 </div>
             </div>
             <div class="flex flex-col justify-center align-items h-full">
-                {description.split("\n").map(|s| view!{<p class="dark:text-gray-100 text-left">{s}</p>}).collect::<Vec<_>>()}
+                <p class="dark:text-gray-100 text-left">{t!(i18n, description)}</p>
             </div>
         </div>
     }
@@ -112,6 +101,7 @@ fn Stack() -> impl IntoView {
         Stack::new("Next.js", "https://simpleicons.org/icons/nextdotjs.svg", 8),
         Stack::new("Gin", "https://simpleicons.org/icons/gin.svg", 1),
     ];
+    let i18n = use_i18n();
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-x-4 flex-1">
             <h1 class="text-xl dark:text-gray-100">Stack</h1>
@@ -465,6 +455,27 @@ fn Contacts() -> impl IntoView {
 
 #[component]
 fn MainPage() -> impl IntoView {
+    let i18n = use_i18n();
+    if let Some(window) = window() {
+        let navigator = window.navigator();
+        let langs = navigator.languages();
+        if let Some(lang) = langs.get(0).as_string() {
+            log!("{lang}");
+            let is_cyrillic = lang.contains("ru")  // Russian
+                || lang.contains("uk")                   // Ukrainian
+                || lang.contains("be")                   // Belarusian
+                || lang.contains("kk")                   // Kazakh
+                || lang.contains("tg")                   // Tajik
+                || lang.contains("uz")                   // Uzbek
+                || lang.contains("ky")                   // Kyrgyz
+                || lang.contains("tk")                   // Turkmen
+                || lang.contains("mn")                   // Mongolian
+                || lang.contains("sr"); // Serbian
+            let locale = if is_cyrillic { Locale::ru } else { Locale::en };
+            i18n.set_locale(locale);
+        }
+    }
+
     view! {
         // Tailwind
         <div class="flex flex-col gap-4 w-full h-full">
