@@ -1,1 +1,8 @@
-{}
+{
+  "personal": {
+    "name": "Michael Barkaloff",
+    "role": "A software developer",
+    "tech": "Proficient in Rust, Python, JS, TS,\nGolang, SQL, PostgreSQL, MySQL,\nFastAPI, Axum, Clap, TailwindCSS,\nLeptos, Aiogram, Teloxide, Gin,\nReact, Next.js, REST, gRPC",
+    "description": "Since my child years I have been making lego models\nIn school I was interested in computers and games\nIn college I got into an IT subject\nBut it was a cybersecurity and there was not much code\nSo, I decided to learn Python in parallel\nAfter 2 years of experience with programming\nI know a lot, both backend and frontend, and much more\nAnd now I am here"
+  }
+}
