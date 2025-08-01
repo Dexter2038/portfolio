@@ -2,6 +2,12 @@ use leptos::prelude::*;
 use web_sys::window;
 
 use crate::i18n::{use_i18n, Locale};
+use crate::components::contacts::Contacts;
+use crate::components::experiences::Experiences;
+use crate::components::personal::Personal;
+use crate::components::process::Process;
+use crate::components::projects::Projects;
+use crate::components::stack::Stack;
 
 /// Default Home Page
 #[component]
