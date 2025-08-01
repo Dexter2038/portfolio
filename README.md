@@ -14,8 +14,8 @@ It is deployed via [GitHub Pages](https://pages.github.com/) using static site g
 ## Tech Stack
 
 - **Rust + Leptos (CSR)**
-- **Axum (for local development)**
-- **GitHub Pages** (for deployment)
+- **Trunk (for local development)**
+- **GitHub Pages (+Trunk)** (for deployment)
 
 ---
 
