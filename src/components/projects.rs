@@ -63,7 +63,7 @@ pub fn Projects() -> impl IntoView {
                             <div class="flex flex-col gap-1">
                                 {p.tech.iter().map(|t| view!{
                                     <div class="flex flex-row gap-1 items-center">
-                                        <img src="/point.svg" class="w-[10px] h-[10px]" />
+                                        <img src="/public/point.svg" class="w-[10px] h-[10px]" />
                                         <p class="text-left dark:text-gray-100">{*t}</p>
                                     </div>
                                 }).collect::<Vec<_>>()}
