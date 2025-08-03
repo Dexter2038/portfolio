@@ -4,5 +4,28 @@
     "role": "A software developer",
     "tech": "Proficient in Rust, Python, JS, TS,\nGolang, SQL, PostgreSQL, MySQL,\nFastAPI, Axum, Clap, TailwindCSS,\nLeptos, Aiogram, Teloxide, Gin,\nReact, Next.js, REST, gRPC",
     "description": "Since my child years I have been making lego models\nIn school I was interested in computers and games\nIn college I got into an IT subject\nBut it was a cybersecurity and there was not much code\nSo, I decided to learn Python in parallel\nAfter 2 years of experience with programming\nI know a lot, both backend and frontend, and much more\nAnd now I am here"
+  },
+  "stack": {
+    "title": "Stack"
+  },
+  "experiences": {
+    "title": "Experiences",
+    "experiences_0_orderer": "Dead Inside",
+    "experiences_0_description": "Delivered product successuffuly after payment, then fixes, new updates and still available on Telegram",
+    "experiences_0_role": "Bot developer",
+    "experiences_0_start": "01.01.2023",
+    "experiences_0_end": "01.01.2024",
+
+    "experiences_1_orderer": "IT Programmer",
+    "experiences_1_description": "Some random text, because I can't really remember, it was quite long ago and I don't want to remember it anymore",
+    "experiences_1_role": "Fullstack developer",
+    "experiences_1_start": "01.06.2024",
+    "experiences_1_end": "01.09.2024",
+
+    "experiences_2_orderer": "IT Programmer",
+    "experiences_2_description": "Some random text, because I can't really remember, it was quite long ago and I don't want to remember it anymore",
+    "experiences_2_role": "Fullstack developer",
+    "experiences_2_start": "01.06.2024",
+    "experiences_2_end": "01.09.2024"
   }
 }
