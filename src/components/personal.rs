@@ -9,7 +9,7 @@ pub fn Personal() -> impl IntoView {
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
             <div class="flex flex-row justify-between">
-                <img src="/portfolio-pic.jpg" class="w-[200px] h-[200px] rounded-3xl" />
+                <img src="/portfolio-pic.png" class="w-[200px] h-[200px] rounded-3xl" />
                 <div class="flex flex-col justify-center w-full">
                     <p class="text-gray-600 dark:text-gray-200">{t!(i18n, personal.name)}</p>
                     <p class="text-gray-600 dark:text-gray-200">{t!(i18n, personal.role)}</p>

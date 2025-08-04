@@ -40,5 +40,22 @@
     "step_3_description": "You receive updates at key milestones. I welcome feedback and make any needed adjustments.",
     "step_4_title": "Final Delivery & Payment",
     "step_4_description": "After final approval, you make the remaining payment. I deliver everything as promised — ready to launch or hand over."
+  },
+  "projects": {
+    "title": "Projects",
+    "projects_0_title": "Dead Inside",
+    "projects_0_description": "Some random text, because I can't really remember",
+    "projects_0_pic": "/portfolio-pic.png",
+    "projects_0_link": "https://github.com/dextermorgan/DeadInside",
+    "projects_0_tech_1": "Rust",
+    "projects_0_tech_2": "Telegram bot",
+    "projects_0_tech_3": "Web",
+    "projects_1_title": "Dead Inside",
+    "projects_1_description": "Some random text, because I can't really remember",
+    "projects_1_pic": "/portfolio-pic.png",
+    "projects_1_link": "https://github.com/dextermorgan/DeadInside",
+    "projects_1_tech_1": "Rust",
+    "projects_1_tech_2": "Telegram bot",
+    "projects_1_tech_3": "Web"
   }
 }
