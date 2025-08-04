@@ -19,15 +19,15 @@ pub fn Projects() -> impl IntoView {
                         <a href={t_string!(i18n, projects.projects_0_link)} class="underline dark:text-gray-100">{t!(i18n, projects.open)}</a>
                         <div class="flex flex-col gap-1">
                             <div class="flex flex-row gap-1 items-center">
-                                <img src="/point.svg" class="w-[10px] h-[10px]" />
+                                <img src="/public/point.svg" class="w-[10px] h-[10px]" />
                                 <p class="text-left dark:text-gray-100">{t!(i18n, projects.projects_0_tech_1)}</p>
                             </div>
                             <div class="flex flex-row gap-1 items-center">
-                                <img src="/point.svg" class="w-[10px] h-[10px]" />
+                                <img src="/public/point.svg" class="w-[10px] h-[10px]" />
                                 <p class="text-left dark:text-gray-100">{t!(i18n, projects.projects_0_tech_2)}</p>
                             </div>
                             <div class="flex flex-row gap-1 items-center">
-                                <img src="/point.svg" class="w-[10px] h-[10px]" />
+                                <img src="/public/point.svg" class="w-[10px] h-[10px]" />
                                 <p class="text-left dark:text-gray-100">{t!(i18n, projects.projects_0_tech_3)}</p>
                             </div>
                         </div>
@@ -43,15 +43,15 @@ pub fn Projects() -> impl IntoView {
                         <a href={t_string!(i18n, projects.projects_1_link)} class="underline dark:text-gray-100">{t!(i18n, projects.open)}</a>
                         <div class="flex flex-col gap-1">
                             <div class="flex flex-row gap-1 items-center">
-                                <img src="/point.svg" class="w-[10px] h-[10px]" />
+                                <img src="/public/point.svg" class="w-[10px] h-[10px]" />
                                 <p class="text-left dark:text-gray-100">{t!(i18n, projects.projects_1_tech_1)}</p>
                             </div>
                             <div class="flex flex-row gap-1 items-center">
-                                <img src="/point.svg" class="w-[10px] h-[10px]" />
+                                <img src="/public/point.svg" class="w-[10px] h-[10px]" />
                                 <p class="text-left dark:text-gray-100">{t!(i18n, projects.projects_1_tech_2)}</p>
                             </div>
                             <div class="flex flex-row gap-1 items-center">
-                                <img src="/point.svg" class="w-[10px] h-[10px]" />
+                                <img src="/public/point.svg" class="w-[10px] h-[10px]" />
                                 <p class="text-left dark:text-gray-100">{t!(i18n, projects.projects_1_tech_3)}</p>
                             </div>
                         </div>

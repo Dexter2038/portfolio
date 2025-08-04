@@ -45,7 +45,7 @@ pub fn Stack() -> impl IntoView {
         Stack::new("Git", "https://simpleicons.org/icons/git.svg", 24),
         Stack::new("Redis", "https://simpleicons.org/icons/redis.svg", 15),
         Stack::new("FastAPI", "https://simpleicons.org/icons/fastapi.svg", 20),
-        Stack::new("Aiogram", "/aiogram.svg", 18),
+        Stack::new("Aiogram", "/public/aiogram.svg", 18),
         Stack::new("Leptos", "https://simpleicons.org/icons/leptos.svg", 1),
         Stack::new("Axum", "https://simpleicons.org/icons/tokio.svg", 4),
         Stack::new("React", "https://simpleicons.org/icons/react.svg", 10),
@@ -62,7 +62,7 @@ pub fn Stack() -> impl IntoView {
                     <ul>
                         {stack.iter().map(|s| view!{
                             <li class="flex flex-row gap-2 items-center">
-                                <img src="/point.svg" class="w-[10px] h-[10px]" />
+                                <img src="/public/point.svg" class="w-[10px] h-[10px]" />
                                 <p class="dark:text-white">{s.name}</p>
                             </li>
                         }).collect::<Vec<_>>()}
