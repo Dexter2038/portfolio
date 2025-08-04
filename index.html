@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Add a plain CSS file: see https://trunkrs.dev/assets/#css -->
+    <!-- If using Tailwind with Leptos CSR, see https://trunkrs.dev/assets/#tailwind instead-->
+    <link rel="stylesheet" href="/portfolio/styles-8382e95075e68da6.css" integrity="sha384-tQs90Yv/kI8alF4LAjlofi+/m65FeaY3+2BZR6YXCfv9paUlrjIqMWFZG0rrBS69"/>
+
+    <!-- Include favicon in dist output: see https://trunkrs.dev/assets/#icon -->
+    <link rel="icon" href="/portfolio/favicon-ca1ff250dbfcb798.ico" integrity="sha384-/RT24KVLBHuV85RkmSj2GumOkkvcaZU9WRJjob+/3YgwEjUPmdNaTqqaItlltdvN"/>
+
+    <!-- include support for `wasm-bindgen --weak-refs` - see: https://rustwasm.github.io/docs/wasm-bindgen/reference/weak-references.html -->
+    
+<script type="module">
+import init, * as bindings from '/portfolio/portfolio-32a85cb664f2e55.js';
+const wasm = await init({ module_or_path: '/portfolio/portfolio-32a85cb664f2e55_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+
+    <script src="/portfolio/tailwind-87976485d6076030.js" integrity="sha384-xT/MqIAJhU6A2znLlbeGKWbZYaiqdtvjtnIFtHYLPnWnsK/wbhSaHhk8f1VHzlZC"></script>
+
+    <!-- Copy images to dist output: see https://trunkrs.dev/assets/#copy -->
+    
+    
+    
+  <link rel="modulepreload" href="/portfolio/portfolio-32a85cb664f2e55.js" crossorigin="anonymous" integrity="sha384-ajf95LqcIxIVZv7uaM8WF4oomvB4sfNo7+fHYVq74Rt8QZQn6UUQjMcblo2kDXYv"><link rel="preload" href="/portfolio/portfolio-32a85cb664f2e55_bg.wasm" crossorigin="anonymous" integrity="sha384-VPP9o33F5Fk/zN63JV+KO790CNHTgsCDUrb4oBbg9PVDj+xvYmLxAmcYjWq0k7lC" as="fetch" type="application/wasm"></head>
+
+  <body></body>
+</html>
