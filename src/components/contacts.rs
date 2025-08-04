@@ -66,14 +66,10 @@ pub fn Contacts() -> impl IntoView {
             "+6281312345678",
         ),
     ];
-    let details = r#"
-        Typically reply within 24h
-        Open to freelance projects — Mon to Fri
-        Timezone: GMT+3
-    "#;
+    let i18n = use_i18n();
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
-            <h1 class="text-xl dark:text-gray-100">Contacts</h1>
+            <h1 class="text-xl dark:text-gray-100">{t_string!(i18n, contacts.title)}</h1>
             <div class="flex flex-col justify-center align-items h-full w-full">
                 {contacts.iter().map(|c| view!{
                     <a href={c.link}>
@@ -82,10 +78,10 @@ pub fn Contacts() -> impl IntoView {
                             <p class="dark:text-gray-100">{c.platform}</p>
                             <p class="dark:text-gray-100">" — "{c.value}</p>
                         </div>
- </a>
+                    </a>
                 }).collect::<Vec<_>>()}
                 <div style="flex-basis: 5%; height: 0;"></div>
-                {details.split("\n").map(|s| view!{<p class="text-left dark:text-gray-100">{s}</p>}).collect::<Vec<_>>()}
+                {t_string!(i18n, contacts.details).split("\n").map(|s| view!{<p class="text-left dark:text-gray-100">{s}</p>}).collect::<Vec<_>>()}
             </div>
         </div>
     }

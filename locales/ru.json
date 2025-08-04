@@ -58,5 +58,9 @@
     "projects_1_tech_1": "Rust",
     "projects_1_tech_2": "Telegram-бот",
     "projects_1_tech_3": "Веб"
+  },
+  "contacts": {
+    "title": "Контакты",
+    "details": "Обычно отвечаю в течение 24 часов\nОткрыт для фриланс-проектов — Пн-Пт\nЧасовой пояс: GMT+3"
   }
 }
