@@ -40,5 +40,23 @@
     "step_3_description": "Вы получаете обновления на ключевых этапах, учитывая обратную связь.",
     "step_4_title": "Доставка",
     "step_4_description": "После утверждения — финальная оплата и передача готового проекта."
+  },
+  "projects": {
+    "title": "Проекты",
+    "open": "Открыть",
+    "projects_0_title": "Мёртв внутри",
+    "projects_0_description": "Какой-то случайный текст, потому что я не помню деталей",
+    "projects_0_pic": "/portfolio-pic.png",
+    "projects_0_link": "https://github.com/dextermorgan/DeadInside",
+    "projects_0_tech_1": "Rust",
+    "projects_0_tech_2": "Telegram-бот",
+    "projects_0_tech_3": "Веб",
+    "projects_1_title": "Мёртв внутри",
+    "projects_1_description": "Какой-то случайный текст, потому что я не помню деталей",
+    "projects_1_pic": "/portfolio-pic.png",
+    "projects_1_link": "https://github.com/dextermorgan/DeadInside",
+    "projects_1_tech_1": "Rust",
+    "projects_1_tech_2": "Telegram-бот",
+    "projects_1_tech_3": "Веб"
   }
 }

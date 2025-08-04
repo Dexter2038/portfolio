@@ -2,38 +2,12 @@ use leptos::prelude::*;
 
 use crate::i18n::*;
 
-struct Project {
-    title: &'static str,
-    description: &'static str,
-    pic: &'static str,
-    link: &'static str,
-    tech: Vec<&'static str>,
-}
-
-impl Project {
-    fn new(
-        title: &'static str,
-        description: &'static str,
-        pic: &'static str,
-        link: &'static str,
-        tech: Vec<&'static str>,
-    ) -> Self {
-        Self {
-            title,
-            description,
-            pic,
-            link,
-            tech,
-        }
-    }
-}
-
 #[component]
 pub fn Projects() -> impl IntoView {
     let i18n = use_i18n();
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
-            <h1 class="text-xl dark:text-gray-100">Projects</h1>
+            <h1 class="text-xl dark:text-gray-100">{t!(i18n, projects.title)}</h1>
             <div class="flex flex-row justify-center align-items h-full w-full gap-4">
                 <div class="flex flex-col gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
                     <div class="flex flex-col gap-1">
@@ -42,7 +16,7 @@ pub fn Projects() -> impl IntoView {
                     </div>
                     <img src=t_string!(i18n, projects.projects_0_pic) class="w-[200px] h-[200px] rounded-3xl" />
                     <div class="flex flex-col justify-around">
-                        <a href={t_string!(i18n, projects.projects_0_link)} class="underline dark:text-gray-100">Open</a>
+                        <a href={t_string!(i18n, projects.projects_0_link)} class="underline dark:text-gray-100">{t!(i18n, projects.open)}</a>
                         <div class="flex flex-col gap-1">
                             <div class="flex flex-row gap-1 items-center">
                                 <img src="/point.svg" class="w-[10px] h-[10px]" />
@@ -66,7 +40,7 @@ pub fn Projects() -> impl IntoView {
                     </div>
                     <img src=t_string!(i18n, projects.projects_1_pic) class="w-[200px] h-[200px] rounded-3xl" />
                     <div class="flex flex-col justify-around">
-                        <a href={t_string!(i18n, projects.projects_1_link)} class="underline dark:text-gray-100">Open</a>
+                        <a href={t_string!(i18n, projects.projects_1_link)} class="underline dark:text-gray-100">{t!(i18n, projects.open)}</a>
                         <div class="flex flex-col gap-1">
                             <div class="flex flex-row gap-1 items-center">
                                 <img src="/point.svg" class="w-[10px] h-[10px]" />

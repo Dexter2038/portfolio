@@ -43,6 +43,7 @@
   },
   "projects": {
     "title": "Projects",
+    "open": "Open",
     "projects_0_title": "Dead Inside",
     "projects_0_description": "Some random text, because I can't really remember",
     "projects_0_pic": "/portfolio-pic.png",
