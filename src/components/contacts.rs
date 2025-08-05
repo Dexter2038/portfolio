@@ -48,7 +48,7 @@ pub fn Contacts() -> impl IntoView {
             "@eprintln",
         ),
         Contact::new(
-            "Twitter (X)",
+            "X",
             "https://x.com/slender548",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg",
             "@slender548",

@@ -14,9 +14,10 @@ pub fn Projects() -> impl IntoView {
                         <p class="font-bold dark:text-white">{t!(i18n, projects.projects_0_title)}</p>
                         <p class="text-gray-600 text-sm dark:text-gray-300">{t!(i18n, projects.projects_0_description)}</p>
                     </div>
-                    <img src=t_string!(i18n, projects.projects_0_pic) class="w-[200px] h-[200px] rounded-3xl" />
+                    <a href={t_string!(i18n, projects.projects_0_link)}>
+                        <img src=t_string!(i18n, projects.projects_0_pic) class="w-[200px] h-[200px] hover:ring-4 blur-lg hover:blur-none transition duration-300 ease-in-out rounded-3xl" />
+                    </a>
                     <div class="flex flex-col justify-around">
-                        <a href={t_string!(i18n, projects.projects_0_link)} class="underline dark:text-gray-100">{t!(i18n, projects.open)}</a>
                         <div class="flex flex-col gap-1">
                             <div class="flex flex-row gap-1 items-center">
                                 <img src="public/point.svg" class="w-[10px] h-[10px]" />
@@ -38,9 +39,10 @@ pub fn Projects() -> impl IntoView {
                         <p class="font-bold dark:text-white">{t!(i18n, projects.projects_1_title)}</p>
                         <p class="text-gray-600 text-sm dark:text-gray-300">{t!(i18n, projects.projects_1_description)}</p>
                     </div>
-                    <img src=t_string!(i18n, projects.projects_1_pic) class="w-[200px] h-[200px] rounded-3xl" />
+                    <a href={t_string!(i18n, projects.projects_1_link)}>
+                        <img src=t_string!(i18n, projects.projects_1_pic) class="w-[200px] h-[200px] hover:ring-4 blur-lg hover:blur-none transition duration-300 ease-in-out rounded-3xl" />
+                    </a>
                     <div class="flex flex-col justify-around">
-                        <a href={t_string!(i18n, projects.projects_1_link)} class="underline dark:text-gray-100">{t!(i18n, projects.open)}</a>
                         <div class="flex flex-col gap-1">
                             <div class="flex flex-row gap-1 items-center">
                                 <img src="public/point.svg" class="w-[10px] h-[10px]" />

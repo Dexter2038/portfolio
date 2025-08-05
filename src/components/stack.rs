@@ -55,7 +55,7 @@ pub fn Stack() -> impl IntoView {
     let i18n = use_i18n();
     let locale = i18n.get_locale();
     view! {
-        <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-x-4 flex-1">
+        <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-x-4 pt-1 flex-1">
             <h1 class="text-xl dark:text-gray-100">{t!(i18n, stack.title)}</h1>
             <div class="flex flex-row justify-stretch">
                 <div class="w-full flex flex-row gap-2 basis-2/3 p-4">
