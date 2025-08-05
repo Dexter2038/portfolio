@@ -120,7 +120,7 @@ pub fn Stack() -> impl IntoView {
                                 };
                                 view! {
                                     <li>
-                                        <div class=format!("h-[4.3px] w-[{percentage}%] {color}")></div>
+                                        <div style=format!("width: {percentage}%; height: 4.3px") class=format!("{color}")></div>
                                     </li>
                                 }
                             }).collect::<Vec<_>>()
