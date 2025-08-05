@@ -11,8 +11,8 @@
     <!-- include support for `wasm-bindgen --weak-refs` - see: https://rustwasm.github.io/docs/wasm-bindgen/reference/weak-references.html -->
     
 <script type="module">
-import init, * as bindings from '/portfolio/portfolio-6a6e329633089108.js';
-const wasm = await init({ module_or_path: '/portfolio/portfolio-6a6e329633089108_bg.wasm' });
+import init, * as bindings from '/portfolio/portfolio-dcfa505b690519a.js';
+const wasm = await init({ module_or_path: '/portfolio/portfolio-dcfa505b690519a_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -26,7 +26,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
     <!-- Copy images to dist output: see https://trunkrs.dev/assets/#copy -->
     
-  <link rel="modulepreload" href="/portfolio/portfolio-6a6e329633089108.js" crossorigin="anonymous" integrity="sha384-TdF0/KtNQjwZHjyK20wJjMU6XVgzQHOItdlBG0/7r+Nlt0yDKN0gS36uWCIvPWpI"><link rel="preload" href="/portfolio/portfolio-6a6e329633089108_bg.wasm" crossorigin="anonymous" integrity="sha384-qX979hcMCPqshcbrOBfW+w/EN4UTpSBb8a5pveeaMYumhsFv0nviXuIF8+U20AMe" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/portfolio/portfolio-dcfa505b690519a.js" crossorigin="anonymous" integrity="sha384-N/MfY6XawYk7mh4YeVXJKDPBYi7o1Ni5XwOqfkxNiteaEPkdThajf/7gpUvlXJQv"><link rel="preload" href="/portfolio/portfolio-dcfa505b690519a_bg.wasm" crossorigin="anonymous" integrity="sha384-a98x/qEoNSYLq8lxH9bIQA0zFNq76+C/dThnZMITuIVdP60lcmsSEXbn8fqs+MKz" as="fetch" type="application/wasm"></head>
 
   <body></body>
 </html>
