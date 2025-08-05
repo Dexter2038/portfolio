@@ -51,20 +51,18 @@ pub fn Home() -> impl IntoView {
                 </ul>
             }
         }>              
-            <main class="h-screen w-screen p-4 dark:bg-gray-700 bg-gray-200">
-                <div class="flex flex-col gap-4 w-full h-full">
-                    <div class="flex flex-col md:flex-row gap-4 w-full md:h-full">
-                        <Personal />
-                        <Stack />
-                        <Process />
-                    </div>
-                    <div class="flex flex-col md:flex-row gap-4 w-full md:h-full">
-                        <Experiences />
-                        <Projects />
-                        <Contacts />
-                    </div>
+            <div class="flex flex-col gap-4 w-full h-full">
+                <div class="flex flex-col md:flex-row gap-4 w-full md:h-full">
+                    <Personal />
+                    <Stack />
+                    <Process />
                 </div>
-            </main>
+                <div class="flex flex-col md:flex-row gap-4 w-full md:h-full">
+                    <Experiences />
+                    <Projects />
+                    <Contacts />
+                </div>
+            </div>
         </ErrorBoundary>
     }
 }

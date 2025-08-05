@@ -51,6 +51,8 @@ pub fn App() -> impl IntoView {
         }
     }, 200);
 
+    let body_class = move || "h-full w-screen p-4 dark:bg-gray-700 bg-gray-200".to_string();
+
     view! {
         <Html attr:lang="en" attr:dir="ltr" attr:data-theme="light" />
 
@@ -60,6 +62,8 @@ pub fn App() -> impl IntoView {
         // injects metadata in the <head> of the page
         <Meta charset="UTF-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <Body {..} class=body_class id="body" />
+
 
         <I18nContextProvider>
             <Home />
