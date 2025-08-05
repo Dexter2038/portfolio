@@ -31,39 +31,39 @@ pub fn Contacts() -> impl IntoView {
     let contacts = vec![
         Contact::new(
             "GitHub",
-            "https://github.com/dextermorgan",
+            "https://github.com/Dexter2038",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg",
-            "dextermorgan",
+            "Dexter2038",
         ),
         Contact::new(
             "Email",
-            "mailto:OoN7l@example.com",
+            "mailto:barkaloff.m@gmail.com",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg",
-            "OoN7l@example.com",
+            "barkaloff.m@gmail.com",
         ),
         Contact::new(
             "Telegram",
-            "https://t.me/dextermorgan",
+            "https://t.me/eprintln",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg",
-            "@dextermorgan",
+            "@eprintln",
         ),
         Contact::new(
             "Twitter (X)",
-            "https://twitter.com/dextermorgan",
+            "https://x.com/slender548",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg",
-            "@dextermorgan",
+            "@slender548",
         ),
         Contact::new(
             "LinkedIn",
-            "https://linkedin.com/in/dextermorgan",
+            "https://linkedin.com/in/slender548",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg",
-            "dextermorgan",
+            "slender548",
         ),
         Contact::new(
             "Whatsapp",
-            "https://wa.me/6281312345678",
+            "https://wa.me/+79304178085",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg",
-            "+6281312345678",
+            "+79304178085",
         ),
     ];
     let i18n = use_i18n();
