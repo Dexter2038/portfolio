@@ -48,6 +48,12 @@ jobs:
       - name: Download and install Trunk binary
         run: cargo install trunk
 
+      - name: Download and install tailwindcss binary
+        run: npm install -D tailwindcss
+
+      - name: Build Tailwind CSS
+        run: npx tailwindcss -i ./input.css -o ./public/styles.css --minify --content "./index.html,./src/**/*.rs,./src/**/*.html,./public/**/*.scss"
+
       - name: Build with Trunk
         # "${GITHUB_REPOSITORY#*/}" evaluates into the name of the repository
         # using --public-url something will allow trunk to modify all the href paths like from favicon.ico to repo_name/favicon.ico .
