@@ -74,7 +74,7 @@ pub fn Contacts() -> impl IntoView {
                 {contacts.iter().map(|c| view!{
                     <a href={c.link}>
                         <div class="flex flex-row gap-1">
-                            <img src={c.icon} class="w-[20px] h-[20px] invert" />
+                            <img src={c.icon} class="w-[20px] h-[20px] dark:invert" />
                             <p class="dark:text-gray-100">{c.platform}</p>
                             <p class="dark:text-gray-100">" — "{c.value}</p>
                         </div>
