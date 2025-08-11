@@ -8,10 +8,10 @@ use leptos_use::use_interval_fn;
 
 // Modules
 mod components;
-mod pages;
+mod home;
 
 // Top-Level pages
-use crate::pages::home::Home;
+use crate::home::Home;
 //use crate::pages::not_found::NotFound;
 
 
