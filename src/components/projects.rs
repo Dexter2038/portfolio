@@ -9,7 +9,7 @@ pub fn Projects() -> impl IntoView {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-4 flex-1">
             <h1 class="text-xl dark:text-gray-100">{t!(i18n, projects.title)}</h1>
             <div class="flex flex-row justify-center align-items h-full w-full gap-4">
-                <div class="flex flex-col gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
+                <div class="flex flex-1 flex-col gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
                     <div class="flex flex-col gap-1">
                         <p class="font-bold dark:text-white">{t!(i18n, projects.projects_0_title)}</p>
                         <p class="text-gray-600 text-sm dark:text-gray-300">{t!(i18n, projects.projects_0_description)}</p>
@@ -34,7 +34,7 @@ pub fn Projects() -> impl IntoView {
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
+                <div class="flex flex-1 flex-col gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
                     <div class="flex flex-col gap-1">
                         <p class="font-bold dark:text-white">{t!(i18n, projects.projects_1_title)}</p>
                         <p class="text-gray-600 text-sm dark:text-gray-300">{t!(i18n, projects.projects_1_description)}</p>
