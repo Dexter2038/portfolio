@@ -11,7 +11,7 @@
   "experiences": {
     "title": "Опыт работы",
     "experiences_0_orderer": "Inside",
-    "experiences_0_description": "Успешно доставил продукт после оплаты, затем исправления, новые обновления, и всё ещё доступен в Telegram",
+    "experiences_0_description": "Успешно доставил продукт после оплаты, затем исправления, новые обновления, и всё ещё доступен в Telegram.",
     "experiences_0_role": "Разработчик бота",
     "experiences_0_start": "26.10.2024",
     "experiences_0_end": "22.01.2025",
@@ -22,11 +22,11 @@
     "experiences_1_start": "01.06.2024",
     "experiences_1_end": "01.09.2024",
 
-    "experiences_2_orderer": "IT Programmer",
-    "experiences_2_description": "Какой-то текст, потому что я реально не помню, это было довольно давно, и я больше не хочу это вспоминать",
-    "experiences_2_role": "Фуллстек-разработчик",
-    "experiences_2_start": "01.06.2024",
-    "experiences_2_end": "01.09.2024"
+    "experiences_2_orderer": "Chanton",
+    "experiences_2_description": "Разработал Telegram-бота на Aiogram с валютой, квизами, мерчем, рефералкой и админ-панелью.",
+    "experiences_2_role": "Разработчик бота",
+    "experiences_2_start": "14.05.2024",
+    "experiences_2_end": "05.06.2024"
   },
   "process": {
     "title": "Как проходит процесс работы?",
@@ -55,8 +55,8 @@
     "projects_1_pic": "public/mailing-bot.png",
     "projects_1_link": "https://github.com/Dexter2038/MailingTGBot",
     "projects_1_tech_1": "Python (Aiogram)",
-    "projects_1_tech_2": "Python (Pyrogram)",
-    "projects_1_tech_3": "Telegram Bot API"
+    "projects_1_tech_2": "SQL (MySQL)",
+    "projects_1_tech_3": "Python (Pyrogram)"
   },
   "contacts": {
     "title": "Контакты",

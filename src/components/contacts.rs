@@ -2,7 +2,6 @@ use leptos::prelude::*;
 
 use crate::i18n::*;
 
-
 struct Contact {
     platform: &'static str,
     link: &'static str,
