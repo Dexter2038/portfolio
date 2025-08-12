@@ -14,7 +14,6 @@ mod home;
 use crate::home::Home;
 //use crate::pages::not_found::NotFound;
 
-
 #[derive(Clone)]
 enum TitleState {
     Add,
@@ -31,25 +30,28 @@ pub fn App() -> impl IntoView {
     let (direction, set_direction) = signal(TitleState::Add);
     let max_title_count = 5;
 
-    use_interval_fn(move || {
-        set_title.update(|title| {
-            *title = format!("Welcome{}", "!".repeat(title_count.get()));
-        });
-        match direction.get() {
-            TitleState::Add => {
-                set_title_count.update(|title_count| *title_count += 1);
-                if title_count.get() >= max_title_count {
-                    set_direction.update(|dir| *dir = TitleState::Remove);
+    use_interval_fn(
+        move || {
+            set_title.update(|title| {
+                *title = format!("Welcome{}", "!".repeat(title_count.get()));
+            });
+            match direction.get() {
+                TitleState::Add => {
+                    set_title_count.update(|title_count| *title_count += 1);
+                    if title_count.get() >= max_title_count {
+                        set_direction.update(|dir| *dir = TitleState::Remove);
+                    }
+                }
+                TitleState::Remove => {
+                    set_title_count.update(|title_count| *title_count -= 1);
+                    if title_count.get() <= 0 {
+                        set_direction.update(|dir| *dir = TitleState::Add);
+                    }
                 }
             }
-            TitleState::Remove => {
-                set_title_count.update(|title_count| *title_count -= 1);
-                if title_count.get() <= 0 {
-                    set_direction.update(|dir| *dir = TitleState::Add);
-                }
-            }
-        }
-    }, 200);
+        },
+        200,
+    );
 
     view! {
         <Html attr:lang="en" attr:dir="ltr" attr:data-theme="light" />
