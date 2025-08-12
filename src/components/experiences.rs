@@ -2,7 +2,6 @@ use leptos::prelude::*;
 
 use crate::i18n::*;
 
-
 #[component]
 pub fn Experiences() -> impl IntoView {
     let i18n = use_i18n();
