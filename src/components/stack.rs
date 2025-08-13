@@ -56,14 +56,12 @@ pub fn Stack() -> impl IntoView {
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-x-4 pt-1 flex-1">
             <h1 class="text-xl dark:text-gray-100">{t!(i18n, stack.title)}</h1>
-            <div class="grid grid-cols-[auto_auto_1fr] items-center gap-x-2 gap-y-1 p-4">
+            <div class="grid grid-cols-[auto_auto_1fr] items-center gap-x-2 p-4">
                 // Background panel for the bar column (spans all rows, placed first for z-index behind)
                 <div class="row-start-1 row-span-full bg-gray-200 dark:bg-gray-700 shadow rounded-2xl"></div>
-
                 {
                     let max_experience = stack.iter().map(|s| s.experience).max().unwrap_or(0);
-                    stack.iter().enumerate().map(|(i, s)| {
-                        let row = i + 1;
+                    stack.iter().map(|s| {
                         let percentage = (s.experience as f32 / max_experience as f32) * 100.0;
                         let color = match percentage {
                             0.0..=11.3 => "bg-red-700",
