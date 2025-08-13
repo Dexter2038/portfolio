@@ -3,16 +3,17 @@
   <head>
     <!-- Add a plain CSS file: see https://trunkrs.dev/assets/#css -->
     <!-- If using Tailwind with Leptos CSR, see https://trunkrs.dev/assets/#tailwind instead-->
-    <link rel="stylesheet" href="/portfolio/styles-c692b3df7a0f09f6.css" integrity="sha384-C6LOKLz2uHIFlslECw+b0NraA8zvWvdJ/9530r+vCihwa2bVlePntEWR4r5hcQdw"/>
+    <link rel="stylesheet" href="/portfolio/styles-c88151879b23e0d8.css" integrity="sha384-h2znUDhmc7rNB2TqHng6R5Ho24sFtbYLuRt0yH+lFeJ5M0/49F1xDIMSYuLjNuhV"/>
 
     <!-- Include favicon in dist output: see https://trunkrs.dev/assets/#icon -->
-    <link rel="icon" href="/portfolio/favicon-ca1ff250dbfcb798.ico" integrity="sha384-/RT24KVLBHuV85RkmSj2GumOkkvcaZU9WRJjob+/3YgwEjUPmdNaTqqaItlltdvN"/>
+    <!-- <a target="_blank" href="https://icons8.com/icon/eO0q1dAkfop9/yin-yang">Yin Yang</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+    <link rel="icon" href="/portfolio/favicon-a01ae2b952dda25e.ico" integrity="sha384-ZbvXycXC4TN0pqoJvcO8FsJTeZLS7kmeAhHcyv4a6+szozRe9VQ6wqPwGE4FuASg"/>
 
     <!-- include support for `wasm-bindgen --weak-refs` - see: https://rustwasm.github.io/docs/wasm-bindgen/reference/weak-references.html -->
     
 <script type="module">
-import init, * as bindings from '/portfolio/portfolio-9e6d526ae1ff2d0d.js';
-const wasm = await init({ module_or_path: '/portfolio/portfolio-9e6d526ae1ff2d0d_bg.wasm' });
+import init, * as bindings from '/portfolio/portfolio-2f571507d0450bbc.js';
+const wasm = await init({ module_or_path: '/portfolio/portfolio-2f571507d0450bbc_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -26,7 +27,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
     <!-- Copy images to dist output: see https://trunkrs.dev/assets/#copy -->
     
-  <link rel="modulepreload" href="/portfolio/portfolio-9e6d526ae1ff2d0d.js" crossorigin="anonymous" integrity="sha384-o/CwitZRb8eW4dVVVC5slJPKq1usp2hbCq6bA7cSwCF0Kld5wjlAD+VFL73gAZ62"><link rel="preload" href="/portfolio/portfolio-9e6d526ae1ff2d0d_bg.wasm" crossorigin="anonymous" integrity="sha384-Nmdx4JZv4IjZDC7C19hpyqWmRdEstWsvQmKz7I8W9wzhNhZ1CcbEk+HS/zhbrzHN" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/portfolio/portfolio-2f571507d0450bbc.js" crossorigin="anonymous" integrity="sha384-o/CwitZRb8eW4dVVVC5slJPKq1usp2hbCq6bA7cSwCF0Kld5wjlAD+VFL73gAZ62"><link rel="preload" href="/portfolio/portfolio-2f571507d0450bbc_bg.wasm" crossorigin="anonymous" integrity="sha384-y9ozpx26oAlLxs/xISzW42sDdQatOtaKkJz//Enb2RqfA6b7i5SOH5TxRt98qhCR" as="fetch" type="application/wasm"></head>
 
   <body></body>
 </html>

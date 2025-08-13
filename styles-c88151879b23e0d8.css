@@ -370,9 +370,6 @@
   .gap-x-2 {
     column-gap: calc(var(--spacing) * 2);
   }
-  .gap-y-1 {
-    row-gap: calc(var(--spacing) * 1);
-  }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
