@@ -56,29 +56,44 @@ pub fn Stack() -> impl IntoView {
     view! {
         <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-x-4 pt-1 flex-1">
             <h1 class="text-xl dark:text-gray-100">{t!(i18n, stack.title)}</h1>
-            <div class="flex flex-row justify-stretch">
-                <div class="w-full flex flex-row gap-2 basis-2/3 p-4">
-                    <ul>
-                        {stack.iter().map(|s| view!{
-                            <li class="flex flex-row gap-2 items-center">
+            <div class="grid grid-cols-[auto_auto_1fr] items-center gap-x-2 gap-y-1 p-4">
+                // Background panel for the bar column (spans all rows, placed first for z-index behind)
+                <div class="row-start-1 row-span-full bg-gray-200 dark:bg-gray-700 shadow rounded-2xl"></div>
+
+                {
+                    let max_experience = stack.iter().map(|s| s.experience).max().unwrap_or(0);
+                    stack.iter().enumerate().map(|(i, s)| {
+                        let row = i + 1;
+                        let percentage = (s.experience as f32 / max_experience as f32) * 100.0;
+                        let color = match percentage {
+                            0.0..=11.3 => "bg-red-700",
+                            11.4..=22.6 => "bg-red-500",
+                            22.7..=33.9 => "bg-red-400",
+                            34.0..=45.3 => "bg-yellow-600",
+                            45.4..=56.6 => "bg-yellow-500",
+                            56.7..=66.9 => "bg-yellow-300",
+                            67.0..=78.3 => "bg-green-700",
+                            78.4..=89.6 => "bg-green-500",
+                            _ => "bg-green-300",
+                        };
+                        view! {
+                            // Name cell
+                            <div class="row-start-[{row}] col-start-1 flex flex-row gap-2 items-center">
                                 <img src="public/point.svg" class="w-[10px] h-[10px]" />
-                                <p class="dark:text-white">{s.name}</p>
-                            </li>
-                        }).collect::<Vec<_>>()}
-                    </ul>
-                    <ul class="flex flex-col">
-                        {stack.iter().map(|s| view!{
-                            <li class="flex flex-row gap-2 items-center">
+                                <p class="dark:text-white whitespace-nowrap">{s.name}</p>
+                            </div>
+                            // Experience cell
+                            <div class="row-start-[{row}] col-start-2 flex flex-row gap-2 items-center">
                                 <img src={s.icon} class="w-[20px] h-[20px] dark:invert" />
-                                <p class="dark:text-white">{s.experience}" "{
+                                <p class="dark:text-white whitespace-nowrap">{s.experience}" "{
                                     match locale {
-                                    Locale::en => {
-                                        match s.experience {
-                                            1 => "month".into_view(),
-                                            _ => "months".into_view(),
-                                        }
-                                    },
-                                    Locale::ru => {
+                                        Locale::en => {
+                                            match s.experience {
+                                                1 => "month".into_view(),
+                                                _ => "months".into_view(),
+                                            }
+                                        },
+                                        Locale::ru => {
                                         let rem_10 = s.experience % 10;
                                         let rem_100 = s.experience % 100;
 
@@ -94,39 +109,17 @@ pub fn Stack() -> impl IntoView {
 
                                         word.into_view()
                                     }
-                                }}
-                                </p>
-                            </li>
-                        }).collect::<Vec<_>>()}
-                    </ul>
-                </div>
-                <div class="w-full basis-1/3 bg-gray-200 dark:bg-gray-700 shadow rounded-2xl p-2 m-2 box-content">
-                    <ul class="flex flex-col gap-5 p-2">
-                        {
-                            let max_experience = stack.iter().map(|s| s.experience).max().unwrap_or(0);
-                            stack.iter().map(|s| {
-                                let percentage = (s.experience as f32 / max_experience as f32) * 100.0;
-                                let color = match percentage {
-                                    0.0..=11.3 => "bg-red-700",
-                                    11.4..=22.6 => "bg-red-500",
-                                    22.7..=33.9 => "bg-red-400",
-                                    34.0..=45.3 => "bg-yellow-600",
-                                    45.4..=56.6 => "bg-yellow-500",
-                                    56.7..=66.9 => "bg-yellow-300",
-                                    67.0..=78.3 => "bg-green-700",
-                                    78.4..=89.6 => "bg-green-500",
-                                    _ => "bg-green-300", // 89.7..=100.0 and any percentage > 100.0
-                                };
-                                view! {
-                                    <li>
-                                        <div style=format!("width: {percentage}%; height: 4.3px") class=format!("{color}")></div>
-                                    </li>
                                 }
-                            }).collect::<Vec<_>>()
-                        }
-                    </ul>
-                </div>
-            </div>
+                            }</p>
+                        </div>
+                        // Bar cell (centered vertically, with padding to match original inset)
+                        <div class="row-start-[{row}] col-start-3 flex items-center px-4">
+                            <div style=format!("width: {percentage}%") class=format!("h-[4.2px] {color}")></div>
+                        </div>
+                    }
+                }).collect::<Vec<_>>()
+            }
+        </div>
         </div>
     }
 }
