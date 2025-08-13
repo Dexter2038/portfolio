@@ -2,7 +2,6 @@ use leptos::prelude::*;
 
 use crate::i18n::*;
 
-
 struct Stack {
     pub name: &'static str,
     pub icon: &'static str,

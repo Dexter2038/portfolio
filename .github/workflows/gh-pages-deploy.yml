@@ -51,8 +51,8 @@ jobs:
       - name: Download and install tailwindcss binary
         run: npm install -D tailwindcss
 
-      - name: Build Tailwind CSS
-        run: npx tailwindcss -i ./input.css -o ./public/styles.css --minify --content "./index.html,./src/**/*.rs,./src/**/*.html,./public/**/*.scss"
+      - name: Build Tailwind CSS using CLI
+        run: tailwindcss -i ./input.css -o ./public/styles.css --minify --content "./index.html,./src/**/*.rs,./src/**/*.html,./public/**/*.scss"
 
       - name: Build with Trunk
         # "${GITHUB_REPOSITORY#*/}" evaluates into the name of the repository

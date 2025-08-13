@@ -2,7 +2,6 @@ use leptos::prelude::*;
 
 use crate::i18n::*;
 
-
 #[component]
 pub fn Process() -> impl IntoView {
     let i18n = use_i18n();
@@ -44,7 +43,7 @@ pub fn Process() -> impl IntoView {
                         <p class="font-bold dark:text-gray-100">{t!(i18n, process.step_4_title)}</p>
                     </div>
                     <p class="text-right text-gray-600 dark:text-gray-200">{t!(i18n, process.step_4_description)}</p>
-                </div>            
+                </div>
             </div>
         </div>
     }
