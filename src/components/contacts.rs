@@ -53,12 +53,6 @@ pub fn Contacts() -> impl IntoView {
             "@slender548",
         ),
         Contact::new(
-            "LinkedIn",
-            "https://linkedin.com/in/slender548",
-            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg",
-            "slender548",
-        ),
-        Contact::new(
             "Whatsapp",
             "https://wa.me/+79304178085",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg",
