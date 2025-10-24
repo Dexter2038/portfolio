@@ -3,7 +3,7 @@
   <head>
     <!-- Add a plain CSS file: see https://trunkrs.dev/assets/#css -->
     <!-- If using Tailwind with Leptos CSR, see https://trunkrs.dev/assets/#tailwind instead-->
-    <link rel="stylesheet" href="/portfolio/styles-c88151879b23e0d8.css" integrity="sha384-h2znUDhmc7rNB2TqHng6R5Ho24sFtbYLuRt0yH+lFeJ5M0/49F1xDIMSYuLjNuhV"/>
+    <link rel="stylesheet" href="/portfolio/styles-77e43e28c766b6c4.css" integrity="sha384-XgYwTCxM2da1cOp1jKV3rs0FVq5wBzFptLWPU7KSNYP/aYfF2DFZjtatoXe29G/4"/>
 
     <!-- Include favicon in dist output: see https://trunkrs.dev/assets/#icon -->
     <!-- <a target="_blank" href="https://icons8.com/icon/eO0q1dAkfop9/yin-yang">Yin Yang</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
@@ -12,8 +12,8 @@
     <!-- include support for `wasm-bindgen --weak-refs` - see: https://rustwasm.github.io/docs/wasm-bindgen/reference/weak-references.html -->
     
 <script type="module">
-import init, * as bindings from '/portfolio/portfolio-2f571507d0450bbc.js';
-const wasm = await init({ module_or_path: '/portfolio/portfolio-2f571507d0450bbc_bg.wasm' });
+import init, * as bindings from '/portfolio/portfolio-1556871a2d58559d.js';
+const wasm = await init({ module_or_path: '/portfolio/portfolio-1556871a2d58559d_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -27,7 +27,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
     <!-- Copy images to dist output: see https://trunkrs.dev/assets/#copy -->
     
-  <link rel="modulepreload" href="/portfolio/portfolio-2f571507d0450bbc.js" crossorigin="anonymous" integrity="sha384-o/CwitZRb8eW4dVVVC5slJPKq1usp2hbCq6bA7cSwCF0Kld5wjlAD+VFL73gAZ62"><link rel="preload" href="/portfolio/portfolio-2f571507d0450bbc_bg.wasm" crossorigin="anonymous" integrity="sha384-y9ozpx26oAlLxs/xISzW42sDdQatOtaKkJz//Enb2RqfA6b7i5SOH5TxRt98qhCR" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/portfolio/portfolio-1556871a2d58559d.js" crossorigin="anonymous" integrity="sha384-bPv6yNnQQfhaCQYIMHuA71PFNaDiQCVOtoc8/3Fe+M4WqPRQz9Z9qvdjNI+uNVvI"><link rel="preload" href="/portfolio/portfolio-1556871a2d58559d_bg.wasm" crossorigin="anonymous" integrity="sha384-hoD7nigLuiLCbNNTko5Dr64RUWBCtRk6XywCv0FA0s/1kss4va2674gZuK+h90Kb" as="fetch" type="application/wasm"></head>
 
   <body></body>
 </html>
