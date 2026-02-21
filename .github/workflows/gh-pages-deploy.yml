@@ -48,11 +48,19 @@ jobs:
       - name: Download and install Trunk binary
         run: cargo install trunk
 
-      - name: Download and install tailwindcss binary
-        run: npm install -D tailwindcss @tailwindcss/cli
+      - name: Setup Node.js and pnpm
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-      - name: Build Tailwind CSS using CLI
-        run: npx @tailwindcss/cli -i ./input.css -o ./public/styles.css --minify --content "./index.html,./src/**/*.rs,./src/**/*.html,./public/**/*.scss"
+      - name: Enable Corepack and install dependencies with pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm install --frozen-lockfile
+
+      - name: Verify Tailwind version (debug)
+        run: ./node_modules/.bin/tailwindcss --version
 
       - name: Build with Trunk
         # "${GITHUB_REPOSITORY#*/}" evaluates into the name of the repository
@@ -60,6 +68,8 @@ jobs:
         # this is necessary for github pages where the site is deployed to username.github.io/repo_name and all files must be requested
         # relatively as favicon.ico. if we skip public-url option, the href paths will instead request username.github.io/favicon.ico which
         # will obviously return error 404 not found.
+        env:
+          TRUNK_TAILWIND_EXECUTABLE: ${{ github.workspace }}/node_modules/.bin/tailwindcss
         run: trunk build --release --public-url "/${GITHUB_REPOSITORY#*/}"
 
       # Deploy to gh-pages branch
