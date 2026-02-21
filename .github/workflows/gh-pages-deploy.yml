@@ -51,7 +51,7 @@ jobs:
       - name: Setup Node.js and pnpm
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Enable Corepack and install dependencies with pnpm
         run: |
@@ -69,7 +69,8 @@ jobs:
         # relatively as favicon.ico. if we skip public-url option, the href paths will instead request username.github.io/favicon.ico which
         # will obviously return error 404 not found.
         env:
-          TRUNK_TAILWIND_EXECUTABLE: ${{ github.workspace }}/node_modules/.bin/tailwindcss
+          # This forces Trunk to use the Tailwind v4 binary you installed via pnpm
+          TRUNK_TOOLS_TAILWIND: ${{ github.workspace }}/node_modules/.bin/tailwindcss
         run: trunk build --release --public-url "/${GITHUB_REPOSITORY#*/}"
 
       # Deploy to gh-pages branch
