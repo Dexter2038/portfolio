@@ -1,22 +1,23 @@
 <!doctype html>
 <html>
-  <head>
-    <!-- Add a plain CSS file: see https://trunkrs.dev/assets/#css -->
-    <!-- If using Tailwind with Leptos CSR, see https://trunkrs.dev/assets/#tailwind instead-->
-    <link data-trunk rel="scss" href="public/styles.css" />
+    <head>
+        <!-- Add a plain CSS file: see https://trunkrs.dev/assets/#css -->
+        <!-- If using Tailwind with Leptos CSR, see https://trunkrs.dev/assets/#tailwind instead-->
+        <!--<link data-trunk rel="scss" href="public/styles.css" />-->
+        <link data-trunk rel="tailwind-css" href="input.css" />
 
-    <!-- Include favicon in dist output: see https://trunkrs.dev/assets/#icon -->
-    <!-- <a target="_blank" href="https://icons8.com/icon/eO0q1dAkfop9/yin-yang">Yin Yang</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
-    <link data-trunk rel="icon" href="public/favicon.ico" />
+        <!-- Include favicon in dist output: see https://trunkrs.dev/assets/#icon -->
+        <!-- <a target="_blank" href="https://icons8.com/icon/eO0q1dAkfop9/yin-yang">Yin Yang</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+        <link data-trunk rel="icon" href="public/favicon.ico" />
 
-    <!-- include support for `wasm-bindgen --weak-refs` - see: https://rustwasm.github.io/docs/wasm-bindgen/reference/weak-references.html -->
-    <link data-trunk rel="rust" data-wasm-opt="z" data-weak-refs />
+        <!-- include support for `wasm-bindgen --weak-refs` - see: https://rustwasm.github.io/docs/wasm-bindgen/reference/weak-references.html -->
+        <link data-trunk rel="rust" data-wasm-opt="z" data-weak-refs />
 
-    <!-- <script data-trunk src="public/tailwind.js"></script> -->
+        <!-- <script data-trunk src="public/tailwind.js"></script> -->
 
-    <!-- Copy images to dist output: see https://trunkrs.dev/assets/#copy -->
-    <link data-trunk rel="copy-dir" href="public/" />
-  </head>
+        <!-- Copy images to dist output: see https://trunkrs.dev/assets/#copy -->
+        <link data-trunk rel="copy-dir" href="public/" />
+    </head>
 
-  <body></body>
+    <body></body>
 </html>
