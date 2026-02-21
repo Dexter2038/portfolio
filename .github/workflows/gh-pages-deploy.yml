@@ -29,70 +29,50 @@ jobs:
     steps:
       - uses: actions/checkout@v4 # repo checkout
 
-      # Install Rust Nightly Toolchain, with Clippy & Rustfmt
+      - name: Install Trunk
+        uses: jetli/trunk-action@v0.5.0
+        with:
+          version: "latest"
+
       - name: Install nightly Rust
         uses: dtolnay/rust-toolchain@nightly
         with:
+          targets: wasm32-unknown-unknown
           components: clippy, rustfmt
 
-      - name: Add WASM target
-        run: rustup target add wasm32-unknown-unknown
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9 # or your preferred version
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: lint
         run: cargo clippy & cargo fmt
 
-      # If using tailwind...
-      # - name: Download and install tailwindcss binary
-      #   run: npm install -D tailwindcss && npx tailwindcss -i <INPUT/PATH.css> -o <OUTPUT/PATH.css>  # run tailwind
-
-      - name: Download and install Trunk binary
-        run: cargo install trunk
-
-      - name: Setup Node.js and pnpm
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Enable Corepack and install dependencies with pnpm
-        run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
-          pnpm install --frozen-lockfile
-
-      - name: Verify Tailwind version (debug)
-        run: ./node_modules/.bin/tailwindcss --version
-
       - name: Build with Trunk
-        # "${GITHUB_REPOSITORY#*/}" evaluates into the name of the repository
-        # using --public-url something will allow trunk to modify all the href paths like from favicon.ico to repo_name/favicon.ico .
-        # this is necessary for github pages where the site is deployed to username.github.io/repo_name and all files must be requested
-        # relatively as favicon.ico. if we skip public-url option, the href paths will instead request username.github.io/favicon.ico which
-        # will obviously return error 404 not found.
         env:
-          # This forces Trunk to use the Tailwind v4 binary you installed via pnpm
           TRUNK_TOOLS_TAILWIND: ${{ github.workspace }}/node_modules/.bin/tailwindcss
         run: trunk build --release --public-url "/${GITHUB_REPOSITORY#*/}"
 
-      # Deploy to gh-pages branch
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: dist
-
-      # Deploy with Github Static Pages
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
-          # token:
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist dir
           path: "./dist"
 
-      - name: Deploy to GitHub Pages 🚀
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
