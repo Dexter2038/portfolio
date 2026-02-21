@@ -61,9 +61,10 @@ jobs:
         run: cargo clippy & cargo fmt
 
       - name: Build with Trunk
+        run: trunk build --release --public-url "/${GITHUB_REPOSITORY#*/}"
         env:
           TRUNK_TOOLS_TAILWIND: ${{ github.workspace }}/node_modules/.bin/tailwindcss
-        run: trunk build --release --public-url "/${GITHUB_REPOSITORY#*/}"
+          BROWSERSLIST_IGNORE_OLD_DATA: true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
