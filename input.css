@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-body {
-  font-family: sans-serif;
-  text-align: center;
+@layer base {
+    body {
+        font-family: sans-serif;
+        text-align: center;
+    }
 }
