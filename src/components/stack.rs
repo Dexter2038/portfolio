@@ -2,122 +2,151 @@ use leptos::prelude::*;
 
 use crate::i18n::*;
 
-struct Stack {
-    pub name: &'static str,
-    pub icon: &'static str,
-    pub experience: i32,
+#[derive(Clone)]
+struct StackItem {
+    name: &'static str,
+    icon: &'static str,
+    details: &'static str,
 }
 
-impl Stack {
-    fn new(name: &'static str, icon: &'static str, experience: i32) -> Self {
+impl StackItem {
+    pub fn new(name: &'static str, icon: &'static str, details: &'static str) -> Self {
         Self {
             name,
             icon,
-            experience,
+            details,
         }
     }
 }
 
 #[component]
 pub fn Stack() -> impl IntoView {
-    let stack = vec![
-        Stack::new("Python", "https://simpleicons.org/icons/python.svg", 24),
-        Stack::new(
-            "JavaScript",
-            "https://simpleicons.org/icons/javascript.svg",
-            12,
-        ),
-        Stack::new(
-            "TypeScript",
-            "https://simpleicons.org/icons/typescript.svg",
-            10,
-        ),
-        Stack::new("Rust", "https://simpleicons.org/icons/rust.svg", 5),
-        Stack::new("Golang", "https://simpleicons.org/icons/go.svg", 2),
-        Stack::new(
-            "PostgreSQL",
-            "https://simpleicons.org/icons/postgresql.svg",
-            18,
-        ),
-        Stack::new("Docker", "https://simpleicons.org/icons/docker.svg", 10),
-        Stack::new("Linux", "https://simpleicons.org/icons/linux.svg", 7),
-        Stack::new("Git", "https://simpleicons.org/icons/git.svg", 24),
-        Stack::new("Redis", "https://simpleicons.org/icons/redis.svg", 15),
-        Stack::new("FastAPI", "https://simpleicons.org/icons/fastapi.svg", 20),
-        Stack::new("Aiogram", "public/aiogram.svg", 18),
-        Stack::new("Leptos", "https://simpleicons.org/icons/leptos.svg", 1),
-        Stack::new("Axum", "https://simpleicons.org/icons/tokio.svg", 4),
-        Stack::new("React", "https://simpleicons.org/icons/react.svg", 10),
-        Stack::new("Next.js", "https://simpleicons.org/icons/nextdotjs.svg", 8),
-        Stack::new("Gin", "https://simpleicons.org/icons/gin.svg", 1),
-    ];
     let i18n = use_i18n();
-    let locale = i18n.get_locale();
+
+    let languages = vec![
+        StackItem::new(
+            "Golang",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/go.svg",
+            t_string!(i18n, stack.stack_go_desc),
+        ),
+        StackItem::new(
+            "Rust",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/rust.svg",
+            t_string!(i18n, stack.stack_rust_desc),
+        ),
+        StackItem::new(
+            "Python",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg",
+            t_string!(i18n, stack.stack_python_desc),
+        ),
+        StackItem::new(
+            "TypeScript",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/typescript.svg",
+            t_string!(i18n, stack.stack_ts_desc),
+        ),
+    ];
+
+    let databases = vec![
+        StackItem::new(
+            "PostgreSQL",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg",
+            t_string!(i18n, stack.stack_pg_desc),
+        ),
+        StackItem::new(
+            "CockroachDB",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/cockroachlabs.svg",
+            t_string!(i18n, stack.stack_crdb_desc),
+        ),
+        StackItem::new(
+            "ClickHouse",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/clickhouse.svg",
+            t_string!(i18n, stack.stack_ch_desc),
+        ),
+        StackItem::new(
+            "Redis",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/redis.svg",
+            t_string!(i18n, stack.stack_redis_desc),
+        ),
+        StackItem::new(
+            "ScyllaDB",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/scylladb.svg",
+            t_string!(i18n, stack.stack_scylla_desc),
+        ),
+    ];
+
+    let infra = vec![
+        StackItem::new(
+            "Docker",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/docker.svg",
+            t_string!(i18n, stack.stack_docker_desc),
+        ),
+        StackItem::new(
+            "Kubernetes",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/kubernetes.svg",
+            t_string!(i18n, stack.stack_k8s_desc),
+        ),
+        StackItem::new(
+            "Apache Kafka",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/apachekafka.svg",
+            t_string!(i18n, stack.stack_kafka_desc),
+        ),
+        StackItem::new(
+            "gRPC",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/cncf.svg",
+            t_string!(i18n, stack.stack_grpc_desc),
+        ),
+        StackItem::new(
+            "Linux",
+            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linux.svg",
+            t_string!(i18n, stack.stack_linux_desc),
+        ),
+    ];
+
     view! {
-        <div class="flex flex-col basis-1/3 border-black bg-gray-100 dark:bg-gray-800 shadow rounded-3xl p-x-4 pt-1 flex-1">
-            <h1 class="text-xl dark:text-gray-100">{t!(i18n, stack.title)}</h1>
-            <div class="grid grid-cols-[auto_auto_1fr] items-center gap-x-2 p-4">
-                // Background panel for the bar column (spans all rows, placed first for z-index behind)
-                <div class="row-start-1 row-span-full bg-gray-200 dark:bg-gray-700 shadow rounded-2xl"></div>
-                {
-                    let max_experience = stack.iter().map(|s| s.experience).max().unwrap_or(0);
-                    stack.iter().map(|s| {
-                        let percentage = (s.experience as f32 / max_experience as f32) * 100.0;
-                        let color = match percentage {
-                            0.0..=11.3 => "bg-red-700",
-                            11.4..=22.6 => "bg-red-500",
-                            22.7..=33.9 => "bg-red-400",
-                            34.0..=45.3 => "bg-yellow-600",
-                            45.4..=56.6 => "bg-yellow-500",
-                            56.7..=66.9 => "bg-yellow-300",
-                            67.0..=78.3 => "bg-green-700",
-                            78.4..=89.6 => "bg-green-500",
-                            _ => "bg-green-300",
-                        };
-                        view! {
-                            // Name cell
-                            <div class="row-start-[{row}] col-start-1 flex flex-row gap-2 items-center">
-                                <img src="public/point.svg" class="w-[10px] h-[10px]" />
-                                <p class="dark:text-white whitespace-nowrap">{s.name}</p>
-                            </div>
-                            // Experience cell
-                            <div class="row-start-[{row}] col-start-2 flex flex-row gap-2 items-center">
-                                <img src={s.icon} class="w-[20px] h-[20px] dark:invert" />
-                                <p class="dark:text-white whitespace-nowrap">{s.experience}" "{
-                                    match locale {
-                                        Locale::en => {
-                                            match s.experience {
-                                                1 => "month".into_view(),
-                                                _ => "months".into_view(),
-                                            }
-                                        },
-                                        Locale::ru => {
-                                        let rem_10 = s.experience % 10;
-                                        let rem_100 = s.experience % 100;
-
-                                        let word = if rem_100 >= 11 && rem_100 <= 14 {
-                                            "месяцев"
-                                        } else {
-                                            match rem_10 {
-                                                1 => "месяц",
-                                                2..=4 => "месяца",
-                                                _ => "месяцев",
-                                            }
-                                        };
-
-                                        word.into_view()
-                                    }
-                                }
-                            }</p>
-                        </div>
-                        // Bar cell (centered vertically, with padding to match original inset)
-                        <div class="row-start-[{row}] col-start-3 flex items-center px-4">
-                            <div style=format!("width: {percentage}%") class=format!("h-[4.2px] {color}")></div>
-                        </div>
-                    }
-                }).collect::<Vec<_>>()
-            }
+        <div class="flex flex-col gap-8 p-6 bg-gray-100 dark:bg-gray-800 rounded-3xl shadow-xl">
+            <StackSection title=t_string!(i18n, stack.programming_languages) items=languages />
+            <StackSection title=t_string!(i18n, stack.databases) items=databases />
+            <StackSection title=t_string!(i18n, stack.infrastructure) items=infra />
         </div>
+    }
+}
+
+#[component]
+fn StackSection(title: &'static str, items: Vec<StackItem>) -> impl IntoView {
+    view! {
+        <div class="flex flex-col gap-4">
+            <h2 class="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 ml-2">
+                {title}
+            </h2>
+            <div class="flex flex-wrap gap-3">
+                {items.into_iter().map(|item| view! { <StackCard item=item /> }).collect_view()}
+            </div>
+        </div>
+    }
+}
+
+#[component]
+fn StackCard(item: StackItem) -> impl IntoView {
+    view! {
+        <div class="group relative flex items-center justify-center p-3 w-14 h-14
+                    bg-gray-200 dark:bg-gray-900 rounded-xl transition-all duration-300
+                    hover:scale-110 hover:shadow-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/30
+                    cursor-pointer
+                    ">
+
+            // Иконка
+            <img src=item.icon class="w-8 h-8 object-contain dark:invert grayscale group-hover:grayscale-0 transition-all" />
+
+            // Поп-ап (Tooltip)
+            <div class="absolute bottom-full mb-3 hidden group-hover:flex flex-col items-center z-50 animate-in fade-in zoom-in duration-200">
+                <div class="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs py-2 px-3 rounded-lg shadow-xl whitespace-nowrap">
+                    <span class="font-bold">{item.name}</span>
+                    <span class="mx-1 opacity-50">|</span>
+                    <span>{item.details}</span>
+                </div>
+                // Треугольничек внизу поп-апа
+                <div class="w-2 h-2 bg-gray-900 dark:bg-gray-100 rotate-45 -mt-1"></div>
+            </div>
         </div>
     }
 }

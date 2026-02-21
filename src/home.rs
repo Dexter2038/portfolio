@@ -17,7 +17,7 @@ pub fn Home() -> impl IntoView {
         let navigator = window.navigator();
         let langs = navigator.languages();
         if let Some(lang) = langs.get(0).as_string() {
-            let is_cyrillic = lang.contains("ru")  // Russian
+            let is_cyrillic = lang.contains("ru")        // Russian
                 || lang.contains("uk")                   // Ukrainian
                 || lang.contains("be")                   // Belarusian
                 || lang.contains("kk")                   // Kazakh
@@ -30,6 +30,7 @@ pub fn Home() -> impl IntoView {
             let locale = if is_cyrillic { Locale::ru } else { Locale::en };
             i18n.set_locale(locale);
         }
+        // i18n.set_locale(Locale::en);
     }
 
     view! {

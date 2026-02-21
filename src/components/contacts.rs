@@ -36,27 +36,15 @@ pub fn Contacts() -> impl IntoView {
         ),
         Contact::new(
             "Email",
-            "mailto:barkaloff.m@gmail.com",
+            "mailto:barkalovmisha@gmail.com",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg",
-            "barkaloff.m@gmail.com",
+            "barkalovmisha@gmail.com",
         ),
         Contact::new(
             "Telegram",
             "https://t.me/eprintln",
             "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg",
             "@eprintln",
-        ),
-        Contact::new(
-            "X",
-            "https://x.com/slender548",
-            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg",
-            "@slender548",
-        ),
-        Contact::new(
-            "Whatsapp",
-            "https://wa.me/+79304178085",
-            "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg",
-            "+79304178085",
         ),
     ];
     let i18n = use_i18n();

@@ -1,65 +1,83 @@
 {
   "personal": {
     "name": "Михаил Баркалов",
-    "role": "Разработчик (Программист)",
-    "tech": "Опытен в Rust, Python, JS, TS, Golang, SQL, PostgreSQL, MySQL, FastAPI, Axum, Clap, TailwindCSS, Leptos, Aiogram, Teloxide, Gin, React, Next.js, REST, gRPC",
-    "description": "С детства я собирал модели из LEGO. В школе меня интересовали компьютеры и игры. В колледже я выбрал направление, связанное с ИТ, но это была кибербезопасность, и там было мало программирования. Поэтому я решил параллельно изучать Python самостоятельно. После двух лет опыта в программировании, я многое узнал — и в бэкенде, и во фронтенде, и не только."
+    "role": "Backend Engineer | Highload & Distributed Systems",
+    "tech": "Go (Core), Rust, Python, PostgreSQL, ClickHouse, Redis Streams, gRPC, Docker",
+    "description": "Специализируюсь на создании отказоустойчивых бэкенд-систем и проектировании масштабируемых архитектур данных. Фокусируюсь на производительности, асинхронной обработке и системах с высокой доступностью. Я не просто пишу код — я проектирую решения, готовые к нагрузкам."
   },
   "stack": {
-    "title": "Стек"
+    "title": "Техническая экспертиза",
+    "programming_languages": "Языки программирования",
+    "databases": "Базы данных",
+    "infrastructure": "Инфраструктура",
+    "stack_go_desc": "Основной стек для высокопроизводительных микросервисов",
+    "stack_rust_desc": "Системное программирование и критические по скорости узлы",
+    "stack_python_desc": "Быстрое прототипирование и сценарии автоматизации",
+    "stack_ts_desc": "Разработка надежных фронтенд-интерфейсов",
+    "stack_pg_desc": "Сложные транзакционные данные и оптимизация запросов",
+    "stack_crdb_desc": "Распределенный SQL и глобальная отказоустойчивость",
+    "stack_ch_desc": "OLAP-аналитика и обработка больших данных",
+    "stack_redis_desc": "Кэширование и real-time обработка через Streams",
+    "stack_scylla_desc": "NoSQL хранилище с минимальными задержками (Low Latency)",
+    "stack_docker_desc": "Контейнеризация и оркестрация окружений",
+    "stack_k8s_desc": "Управление кластерами и масштабирование сервисов",
+    "stack_kafka_desc": "Шина событий для асинхронной архитектуры",
+    "stack_grpc_desc": "Высокоскоростное межсервисное взаимодействие",
+    "stack_linux_desc": "Администрирование серверов и тюнинг окружения"
   },
   "experiences": {
-    "title": "Опыт работы",
-    "experiences_0_orderer": "Inside",
-    "experiences_0_description": "Успешно доставил продукт после оплаты, затем исправления, новые обновления, и всё ещё доступен в Telegram.",
-    "experiences_0_role": "Разработчик бота",
+    "title": "Профессиональный опыт",
+    "experiences_0_orderer": "Inside (Fintech & Telegram Ecosystem)",
+    "experiences_0_role": "Lead Backend Developer",
+    "experiences_0_description": "Проектирование и успешный запуск продакшн-системы с автоматизированным циклом обновлений. Фокус на долгосрочной стабильности и отказоустойчивости в рамках экосистемы Telegram.",
     "experiences_0_start": "26.10.2024",
     "experiences_0_end": "22.01.2025",
 
-    "experiences_1_orderer": "Программист IT",
-    "experiences_1_description": "Разработал Telegram WebApp с мини-играми, криптовалютой, админ-панелью и реферальную системой.",
-    "experiences_1_role": "Фуллстек-разработчик",
-    "experiences_1_start": "01.06.2024",
-    "experiences_1_end": "01.09.2024",
+    "experiences_1_orderer": "Web3 Startup / IT Programmer",
+    "experiences_1_role": "Fullstack Engineer",
+    "experiences_1_description": "Разработка высоконагруженного Telegram WebApp с игровыми механиками и крипто-интеграцией. Архитектура реферальной системы, оптимизированная под резкий рост активных пользователей.",
+    "experiences_1_start": "05.07.2024",
+    "experiences_1_end": "03.10.2024",
 
-    "experiences_2_orderer": "Chanton",
-    "experiences_2_description": "Разработал Telegram-бота на Aiogram с валютой, квизами, мерчем, рефералкой и админ-панелью.",
-    "experiences_2_role": "Разработчик бота",
+    "experiences_2_orderer": "Chanton (E-commerce)",
+    "experiences_2_role": "Backend Developer",
+    "experiences_2_description": "Построение автоматизированной воронки продаж: от игровых квизов до маркетплейса. Реализация сложной панели управления инвентарем и пользователями в реальном времени.",
     "experiences_2_start": "14.05.2024",
     "experiences_2_end": "05.06.2024"
   },
   "process": {
-    "title": "Как проходит процесс работы?",
-    "step_0_title": "Обсуждение проекта",
-    "step_0_description": "Беседуем, чтобы уточнить цели, функции, сроки и бюджет. Делитесь идеями и референсами.",
-    "step_1_title": "Предложение",
-    "step_1_description": "Отправляю план проекта с объемом, сроками и ценой. После согласия начинаем.",
-    "step_2_title": "Предоплата",
-    "step_2_description": "Предоплата 30–50% запускает работу по согласованному плану.",
-    "step_3_title": "Обновления",
-    "step_3_description": "Вы получаете обновления на ключевых этапах, учитывая обратную связь.",
-    "step_4_title": "Доставка",
-    "step_4_description": "После утверждения — финальная оплата и передача готового проекта."
+    "title": "Рабочий процесс",
+    "step_0_title": "Аналитика и ТЗ",
+    "step_0_description": "Анализируем бизнес-цели для определения технических требований, выбора оптимального стека и проектирования архитектуры данных.",
+    "step_1_title": "План и Roadmap",
+    "step_1_description": "Формирую детальный план разработки с описанием ключевых этапов, сроков и прозрачной оценкой стоимости.",
+    "step_2_title": "Запуск разработки",
+    "step_2_description": "После согласования (предоплата 30–50%) приступаю к реализации ядра системы, бизнес-логики и необходимых интеграций.",
+    "step_3_title": "Итерации и метрики",
+    "step_3_description": "Регулярные обновления на ключевых этапах. Используем обратную связь для тонкой настройки производительности и соответствия стандартам.",
+    "step_4_title": "Сдача и поддержка",
+    "step_4_description": "Финальное тестирование под нагрузкой, передача документации и запуск продукта. Система готова к работе в продакшн-среде."
   },
   "projects": {
-    "title": "Проекты",
-    "projects_0_title": "KickTheDoll",
-    "projects_0_description": "Telegram WebApp на подобие hamster kombat",
+    "title": "Избранные кейсы",
+    "projects_0_title": "KickTheDoll (High-Load Game Engine)",
+    "projects_0_description": "Масштабируемая игровая платформа. Реализована real-time синхронизация состояний на базе WebSockets с обеспечением консистентности через Redis.",
     "projects_0_pic": "public/kick-the-doll-preview.png",
     "projects_0_link": "https://github.com/Dexter2038/KickTheDollWebBot",
-    "projects_0_tech_1": "Python (FastAPI)",
-    "projects_0_tech_2": "Python (Aiogram)",
-    "projects_0_tech_3": "GDScript (Godot 3)",
-    "projects_1_title": "Telegram бот-рассылка",
-    "projects_1_description": "Бот с админ-системой и рассылкой",
+    "projects_0_tech_1": "Go / FastAPI",
+    "projects_0_tech_2": "Redis State Management",
+    "projects_0_tech_3": "PostgreSQL",
+
+    "projects_1_title": "Enterprise Mailing Engine",
+    "projects_1_description": "Система массовых уведомлений с продвинутым управлением очередями. Защита от блокировок API (Rate Limiting) через Redis Streams.",
     "projects_1_pic": "public/mailing-bot.png",
     "projects_1_link": "https://github.com/Dexter2038/MailingTGBot",
-    "projects_1_tech_1": "Python (Aiogram)",
-    "projects_1_tech_2": "SQL (MySQL)",
-    "projects_1_tech_3": "Python (Pyrogram)"
+    "projects_1_tech_1": "Asynchronous Go/Python",
+    "projects_1_tech_2": "MySQL / PostgreSQL",
+    "projects_1_tech_3": "Redis Streams"
   },
   "contacts": {
-    "title": "Контакты",
-    "details": "Обычно отвечаю в течение 24 часов\nОткрыт — Пн-Пт\nЧасовой пояс: GMT+3"
+    "title": "Связаться со мной",
+    "details": "Среднее время ответа: в течение рабочего дня\nДоступен — Пн-Сб\nЧасовой пояс: GMT+3"
   }
 }

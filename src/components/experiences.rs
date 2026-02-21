@@ -11,7 +11,7 @@ pub fn Experiences() -> impl IntoView {
             <div class="flex flex-col justify-center align-items h-full w-full gap-4">
                 <div class="flex flex-row gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
                     <div class="flex flex-col gap-1">
-                        <p class="font-bold dark:text-white">"\""{t!(i18n, experiences.experiences_0_orderer)}"\""</p>
+                        <p class="font-bold dark:text-white">{t!(i18n, experiences.experiences_0_orderer)}</p>
                         <p class="text-gray-600 text-sm dark:text-gray-300">{t!(i18n, experiences.experiences_0_start)} - {t!(i18n, experiences.experiences_0_end)}</p>
                     </div>
                     <div class="flex flex-col justify-around">
@@ -21,7 +21,7 @@ pub fn Experiences() -> impl IntoView {
                 </div>
                 <div class="flex flex-row gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
                     <div class="flex flex-col gap-1">
-                        <p class="font-bold dark:text-white">"\""{t!(i18n, experiences.experiences_1_orderer)}"\""</p>
+                        <p class="font-bold dark:text-white">{t!(i18n, experiences.experiences_1_orderer)}</p>
                         <p class="text-gray-600 text-sm dark:text-gray-300">{t!(i18n, experiences.experiences_1_start)} - {t!(i18n, experiences.experiences_1_end)}</p>
                     </div>
                     <div class="flex flex-col justify-around">
@@ -31,7 +31,7 @@ pub fn Experiences() -> impl IntoView {
                 </div>
                 <div class="flex flex-row gap-1 rounded-3xl bg-gray-200 dark:bg-gray-700 p-4">
                     <div class="flex flex-col gap-1">
-                        <p class="font-bold dark:text-white">"\""{t!(i18n, experiences.experiences_2_orderer)}"\""</p>
+                        <p class="font-bold dark:text-white">{t!(i18n, experiences.experiences_2_orderer)}</p>
                         <p class="text-gray-600 text-sm dark:text-gray-300">{t!(i18n, experiences.experiences_2_start)} - {t!(i18n, experiences.experiences_2_end)}</p>
                     </div>
                     <div class="flex flex-col justify-around">
